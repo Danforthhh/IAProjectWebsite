@@ -62,7 +62,7 @@ export default function Home() {
                   Découvrir le produit
                 </Link>
                 <Link
-                  to="/product#order"
+                  to="/checkout"
                   className="inline-flex items-center gap-2 text-sm font-medium px-7 py-3.5 rounded-full bg-white/8 hover:bg-white/14 border border-white/12 transition-colors"
                 >
                   Commander
