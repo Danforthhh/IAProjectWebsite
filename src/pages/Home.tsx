@@ -238,6 +238,80 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
+            {/* Manufacturers */}
+            <div className="mt-8 pt-8 border-t border-white/8">
+              <h4 className="text-sm font-semibold text-white mb-5">Partenaires de fabrication potentiels</h4>
+              <div className="grid md:grid-cols-3 gap-4">
+                {/* Frankie's Organic — recommended */}
+                <div className="rounded-2xl p-5 border-2 border-brand-500/50 bg-brand-500/8 relative">
+                  <div className="absolute -top-3 left-4">
+                    <span className="text-[10px] font-bold uppercase tracking-wider bg-brand-500 text-white px-2.5 py-1 rounded-full">
+                      Recommandé
+                    </span>
+                  </div>
+                  <div className="flex items-start justify-between mb-3 mt-1">
+                    <div>
+                      <div className="text-sm font-bold text-white">Frankie's Organic</div>
+                      <div className="text-xs text-stone-400 mt-0.5">Aliments Biologiques Frankie inc.</div>
+                    </div>
+                    <div className="text-brand-400 text-xs font-bold shrink-0">⭐⭐⭐⭐⭐</div>
+                  </div>
+                  <div className="space-y-1.5 text-xs text-stone-400 mb-4">
+                    <div className="flex items-start gap-1.5"><span className="text-brand-400 mt-0.5 shrink-0">📍</span>2060 rue Michelin, Laval, QC H7L 5C2</div>
+                    <div className="flex items-start gap-1.5"><span className="text-brand-400 mt-0.5 shrink-0">🌐</span>frankiesorganic.ca</div>
+                    <div className="flex items-start gap-1.5"><span className="text-brand-400 mt-0.5 shrink-0">✓</span>Certifié bio · Sans gluten · Sans OGM</div>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    {['Extrusion thermique', 'Robotisation', 'Private label'].map(t => (
+                      <span key={t} className="text-[10px] bg-brand-500/20 text-brand-300 px-2 py-0.5 rounded-full">{t}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Néo Chips */}
+                <div className="rounded-2xl p-5 border border-white/10 bg-white/4">
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <div className="text-sm font-bold text-white">Néo Chips</div>
+                      <div className="text-xs text-stone-400 mt-0.5">Startup économie circulaire</div>
+                    </div>
+                    <div className="text-yellow-500/60 text-xs font-bold shrink-0">⭐⭐⭐</div>
+                  </div>
+                  <div className="space-y-1.5 text-xs text-stone-400 mb-4">
+                    <div className="flex items-start gap-1.5"><span className="text-stone-500 mt-0.5 shrink-0">📍</span>4395 av Beaudry, Saint-Hyacinthe, QC J2S 8W2</div>
+                    <div className="flex items-start gap-1.5"><span className="text-stone-500 mt-0.5 shrink-0">📞</span>(418) 730-3589</div>
+                    <div className="flex items-start gap-1.5"><span className="text-stone-500 mt-0.5 shrink-0">✉</span>jerome@neochips.ca</div>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    {['Lyophilisation', 'Valorisation', 'Végan'].map(t => (
+                      <span key={t} className="text-[10px] bg-white/8 text-stone-400 px-2 py-0.5 rounded-full">{t}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Vibe Foods */}
+                <div className="rounded-2xl p-5 border border-white/10 bg-white/4">
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <div className="text-sm font-bold text-white">Vibe Foods</div>
+                      <div className="text-xs text-stone-400 mt-0.5">Fabricant artisanal chips végétales</div>
+                    </div>
+                    <div className="text-yellow-500/60 text-xs font-bold shrink-0">⭐⭐</div>
+                  </div>
+                  <div className="space-y-1.5 text-xs text-stone-400 mb-4">
+                    <div className="flex items-start gap-1.5"><span className="text-stone-500 mt-0.5 shrink-0">📍</span>Montréal, QC H4N 2R9</div>
+                    <div className="flex items-start gap-1.5"><span className="text-stone-500 mt-0.5 shrink-0">✉</span>info@vibefoods.ca</div>
+                    <div className="flex items-start gap-1.5"><span className="text-stone-500 mt-0.5 shrink-0">🌐</span>vibefoods.ca</div>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    {['Déshydratation', 'Artisanal', 'Co-développement'].map(t => (
+                      <span key={t} className="text-[10px] bg-white/8 text-stone-400 px-2 py-0.5 rounded-full">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
