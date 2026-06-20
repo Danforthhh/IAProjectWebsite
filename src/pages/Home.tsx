@@ -190,17 +190,14 @@ export default function Home() {
           {/* Step 5 — CrunchLab */}
           <div className="bg-stone-950 rounded-3xl p-8 md:p-10 text-white">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
-              <div className="flex items-center gap-5">
-                <div className="bg-white rounded-2xl p-3 shrink-0">
+              <div>
+                <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-3">Produit par</span>
+                <div className="bg-white rounded-2xl px-6 py-4 inline-block shadow-2xl shadow-black/50">
                   <img
                     src={`${import.meta.env.BASE_URL}crunchlab-logo.png`}
                     alt="CrunchLab"
-                    className="h-16 w-auto"
+                    className="h-20 w-auto"
                   />
-                </div>
-                <div>
-                  <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-1">L'entreprise</span>
-                  <p className="text-stone-400 text-sm italic">"L'innovation gourmande."</p>
                 </div>
               </div>
               <div className="flex gap-3 flex-wrap">

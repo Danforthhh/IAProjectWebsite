@@ -19,12 +19,12 @@ export default function Footer() {
             <Link to="/annexe" className="hover:text-stone-300 transition-colors">Annexe MBA</Link>
           </div>
 
-          <div className="flex flex-col items-center md:items-end gap-2">
-            <div className="bg-white rounded-xl px-3 py-2">
+          <div className="flex flex-col items-center md:items-end gap-3">
+            <div className="bg-white rounded-xl px-5 py-3 shadow-lg shadow-black/40">
               <img
                 src={`${import.meta.env.BASE_URL}crunchlab-logo.png`}
                 alt="CrunchLab"
-                className="h-8 w-auto opacity-90"
+                className="h-12 w-auto"
               />
             </div>
             <p className="text-xs text-stone-600">Concept MBA HEC Montréal · Built with Claude</p>
