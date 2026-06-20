@@ -30,7 +30,7 @@ function TruckScene() {
       >
         <div
           className="w-9 h-11 rounded flex flex-col items-center justify-center gap-0.5 shadow-lg"
-          style={{ background: 'linear-gradient(160deg,#e03300,#c2410c)' }}
+          style={{ background: 'linear-gradient(160deg,#eb5215,#c2410c)' }}
         >
           <span className="text-[9px] font-black italic text-white leading-none" style={serif}>Smash'd</span>
           <div className="flex gap-0.5">
@@ -151,7 +151,7 @@ export default function Checkout() {
             <div
               className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-4xl font-bold text-white"
               style={{
-                backgroundColor: '#cc2200',
+                backgroundColor: '#d44008',
                 animation: showDetails ? 'scaleIn 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards' : 'none',
                 opacity: 0,
               }}
@@ -183,9 +183,9 @@ export default function Checkout() {
                     <div
                       className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-all duration-500"
                       style={{
-                        borderColor: trackStep > i ? '#cc2200' : trackStep === i + 1 ? '#cc2200' : 'rgba(255,255,255,0.15)',
-                        backgroundColor: trackStep > i ? '#cc2200' : trackStep === i + 1 ? 'rgba(234,88,12,0.15)' : 'transparent',
-                        color: trackStep >= i + 1 ? '#cc2200' : 'rgba(255,255,255,0.2)',
+                        borderColor: trackStep > i ? '#d44008' : trackStep === i + 1 ? '#d44008' : 'rgba(255,255,255,0.15)',
+                        backgroundColor: trackStep > i ? '#d44008' : trackStep === i + 1 ? 'rgba(234,88,12,0.15)' : 'transparent',
+                        color: trackStep >= i + 1 ? '#d44008' : 'rgba(255,255,255,0.2)',
                         animation: trackStep === i + 1 ? 'trackPulse 1s ease 0.1s 3' : 'none',
                       }}
                     >
@@ -193,7 +193,7 @@ export default function Checkout() {
                     </div>
                     <span
                       className="text-xs font-medium transition-colors duration-500 text-center"
-                      style={{ color: trackStep > i ? '#e03300' : trackStep === i + 1 ? '#e5e7eb' : 'rgba(255,255,255,0.25)' }}
+                      style={{ color: trackStep > i ? '#eb5215' : trackStep === i + 1 ? '#e5e7eb' : 'rgba(255,255,255,0.25)' }}
                     >
                       {label}
                     </span>
@@ -210,9 +210,9 @@ export default function Checkout() {
             <Link
               to="/"
               className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full text-white transition-colors"
-              style={{ backgroundColor: '#cc2200' }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#e03300')}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#cc2200')}
+              style={{ backgroundColor: '#d44008' }}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
             >
               Retour à l'accueil
             </Link>
@@ -234,8 +234,8 @@ export default function Checkout() {
             disabled={demoRunning}
             className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition-all"
             style={{
-              borderColor: '#cc2200',
-              color: demoRunning ? '#fb923c' : '#cc2200',
+              borderColor: '#d44008',
+              color: demoRunning ? '#fb923c' : '#d44008',
               backgroundColor: demoRunning ? 'rgba(234,88,12,0.08)' : 'transparent',
             }}
           >
@@ -264,7 +264,7 @@ export default function Checkout() {
                     <div
                       className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
                       style={{
-                        backgroundColor: step === s ? '#cc2200' : (step === 'payment' && s === 'shipping') ? '#16a34a' : '#e5e7eb',
+                        backgroundColor: step === s ? '#d44008' : (step === 'payment' && s === 'shipping') ? '#16a34a' : '#e5e7eb',
                         color: step === s || (step === 'payment' && s === 'shipping') ? 'white' : '#6b7280',
                       }}
                     >
@@ -334,9 +334,9 @@ export default function Checkout() {
                 <button
                   type="submit"
                   className="w-full py-3.5 rounded-full font-semibold text-white transition-colors"
-                  style={{ backgroundColor: '#cc2200' }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#e03300')}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#cc2200')}
+                  style={{ backgroundColor: '#d44008' }}
+                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
+                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
                 >
                   Continuer vers le paiement
                 </button>
@@ -388,9 +388,9 @@ export default function Checkout() {
                 <button
                   type="submit"
                   className="w-full py-3.5 rounded-full font-semibold text-white transition-colors"
-                  style={{ backgroundColor: '#cc2200' }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#e03300')}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#cc2200')}
+                  style={{ backgroundColor: '#d44008' }}
+                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
+                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
                 >
                   Confirmer la commande · ${price.toFixed(2)}
                 </button>

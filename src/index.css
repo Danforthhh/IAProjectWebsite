@@ -4,14 +4,14 @@
 @theme {
   --font-sans: 'DM Sans', system-ui, sans-serif;
   --font-display: 'DM Serif Display', Georgia, serif;
-  --color-brand-50: #fdf4f2;
-  --color-brand-100: #fce8e2;
-  --color-brand-200: #f8cfc5;
-  --color-brand-300: #f2a08e;
-  --color-brand-400: #e86a55;
-  --color-brand-500: #cc2200;
-  --color-brand-600: #aa1900;
-  --color-brand-700: #881400;
+  --color-brand-50: #fef5f0;
+  --color-brand-100: #fde8db;
+  --color-brand-200: #fbcfbc;
+  --color-brand-300: #f5a070;
+  --color-brand-400: #e86530;
+  --color-brand-500: #d44008;
+  --color-brand-600: #b33407;
+  --color-brand-700: #8f2905;
 }
 
 * {
@@ -94,8 +94,8 @@ body {
 }
 
 @keyframes trackPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4); }
-  50%       { box-shadow: 0 0 0 8px rgba(234, 88, 12, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 64, 8, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(212, 64, 8, 0); }
 }
 
 @keyframes scaleIn {

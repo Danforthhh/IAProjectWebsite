@@ -45,9 +45,9 @@ export default function Navigation() {
           <Link
             to="/checkout"
             className="text-sm font-semibold px-4 py-2 rounded-full text-white transition-colors"
-            style={{ backgroundColor: '#cc2200' }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#e03300')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#cc2200')}
+            style={{ backgroundColor: '#d44008' }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
           >
             Commander
           </Link>

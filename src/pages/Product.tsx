@@ -65,9 +65,9 @@ export default function Product() {
                   to="/checkout"
                   state={{ qty, price: qty * 3.75 }}
                   className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold text-white transition-colors"
-                  style={{ backgroundColor: '#cc2200' }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#e03300')}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#cc2200')}
+                  style={{ backgroundColor: '#d44008' }}
+                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
+                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
                 >
                   Commander · ${(qty * 3.75).toFixed(2)}
                 </Link>

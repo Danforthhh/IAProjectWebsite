@@ -34,7 +34,7 @@ export default function Home() {
                 <span className="block text-[clamp(4rem,11vw,9rem)] text-white">The chip</span>
                 <span
                   className="block text-[clamp(4rem,11vw,9rem)] italic"
-                  style={{ color: '#e03300' }}
+                  style={{ color: '#eb5215' }}
                 >
                   they forgot
                 </span>
@@ -48,9 +48,9 @@ export default function Home() {
                 <Link
                   to="/product"
                   className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-full transition-all"
-                  style={{ backgroundColor: '#cc2200', color: 'white' }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#e03300')}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#cc2200')}
+                  style={{ backgroundColor: '#d44008', color: 'white' }}
+                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
+                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
                 >
                   Découvrir le produit
                 </Link>
@@ -71,7 +71,7 @@ export default function Home() {
                 <div
                   className="absolute -top-3 -right-3 w-16 h-16 rounded-full bg-white text-stone-900 flex flex-col items-center justify-center shadow-lg"
                 >
-                  <span className="text-lg font-black leading-none" style={{ color: '#cc2200' }}>4.7</span>
+                  <span className="text-lg font-black leading-none" style={{ color: '#d44008' }}>4.7</span>
                   <span className="text-[9px] text-stone-400 font-medium">/5</span>
                 </div>
               </div>
@@ -87,7 +87,7 @@ export default function Home() {
               { val: '0', label: 'Produit laitier' },
             ].map(s => (
               <div key={s.label}>
-                <div className="text-2xl font-black text-white" style={{ color: s.val === '0' ? '#cc2200' : undefined }}>
+                <div className="text-2xl font-black text-white" style={{ color: s.val === '0' ? '#d44008' : undefined }}>
                   {s.val}
                 </div>
                 <div className="text-xs text-stone-500 uppercase tracking-wider mt-0.5">{s.label}</div>
@@ -139,8 +139,8 @@ export default function Home() {
             <div className="bg-stone-950 rounded-3xl p-8 text-white">
               <p className="text-xs uppercase tracking-widest text-stone-500 mb-6">Formulation</p>
               {[
-                { ing: 'Farine de lentilles', pct: '55%', role: 'Base & texture croustillante', color: '#cc2200' },
-                { ing: 'Fécule de tapioca', pct: '15%', role: 'Liant, légèreté', color: '#e03300' },
+                { ing: 'Farine de lentilles', pct: '55%', role: 'Base & texture croustillante', color: '#d44008' },
+                { ing: 'Fécule de tapioca', pct: '15%', role: 'Liant, légèreté', color: '#eb5215' },
                 { ing: 'Levure nutritionnelle', pct: '8%', role: 'Umami végétal, sans lait', color: '#fb923c' },
                 { ing: 'Poudre d\'oignon', pct: '6%', role: 'Arôme signature', color: '#fdba74' },
                 { ing: 'Acide citrique', pct: '3%', role: 'Note crème sure', color: '#fed7aa' },
