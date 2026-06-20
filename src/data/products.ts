@@ -20,7 +20,7 @@ export type Product = {
   highlight: string
   marketStat: string
   format: string
-  isHero?: boolean
+  isHero: boolean
 }
 
 export const products: Product[] = [
@@ -46,6 +46,7 @@ export const products: Product[] = [
     highlight: "Seule chip végétale reproduisant exactement la saveur crème sure & oignon des leaders du marché",
     marketStat: "+47% croissance segment chips végétales (2019–2023)",
     format: "Chips, 40g",
+    isHero: true,
   },
   {
     id: 'honeycrisp',
@@ -69,6 +70,7 @@ export const products: Product[] = [
     highlight: "Profil sucré-salé quasi absent du rayon chips — friture sous vide à 100°C préserve couleurs et croquant",
     marketStat: "10.2% CAGR chips premium (2019–2023)",
     format: "Chips, 40–50g",
+    isHero: false,
   },
   {
     id: 'kub',
@@ -92,6 +94,7 @@ export const products: Product[] = [
     highlight: "Format cube Instagrammable + adaptogènes (maca, matcha) = zone aveugle du snacking bien-être exploitée",
     marketStat: "Portion 25g = achat impulsif + portion control en 2026",
     format: "Cube 3×3cm, 25g",
+    isHero: false,
   },
   {
     id: 'glowbar',
@@ -115,6 +118,7 @@ export const products: Product[] = [
     highlight: "Philosophie 'fruit-first' : citron vrai en ingrédient principal, aw<0.65, shelf-life 9 mois ambiant",
     marketStat: "Yield 500–800 kg/h, emballage cellulose compostable",
     format: "Barre 40g",
+    isHero: false,
   },
   {
     id: 'pepite',
@@ -138,7 +142,7 @@ export const products: Product[] = [
     highlight: "Enrobage doré (E175 + bêta-carotène) = visibilité rayon immédiate — architecture 3 couches unique",
     marketStat: "Marché $8.3B, top 3 < 31% revenus = opportunité challenger réelle",
     format: "Barre 40g, 210 kcal",
-    isHero: true,
+    isHero: false,
   },
 ]
 

@@ -1,21 +1,26 @@
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
-import Hero from './components/Hero'
-import Exercise from './components/Exercise'
-import Products from './components/Products'
-import Analysis from './components/Analysis'
-import Reflection from './components/Reflection'
 import Footer from './components/Footer'
+import Home from './pages/Home'
+import Product from './pages/Product'
+import Checkout from './pages/Checkout'
+import Annexe from './pages/Annexe'
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <Hero />
-      <Exercise />
-      <Products />
-      <Analysis />
-      <Reflection />
-      <Footer />
-    </div>
+    <HashRouter>
+      <div className="min-h-screen flex flex-col">
+        <Navigation />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/annexe" element={<Annexe />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </HashRouter>
   )
 }
