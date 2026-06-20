@@ -6,16 +6,16 @@ const serif = { fontFamily: "'DM Serif Display', Georgia, serif" }
 type LocationState = { qty?: number; price?: number } | null
 
 const DEMO_SHIPPING = {
-  firstName: 'Marie',
-  lastName: 'Dubois',
-  email: 'marie.dubois@gmail.com',
-  address: '24 rue du Faubourg Saint-Antoine',
-  city: 'Paris',
-  zip: '75011',
-  country: 'France',
+  firstName: 'Cristina',
+  lastName: 'Rizzuto',
+  email: 'cristina.rizzuto@hec.ca',
+  address: '3000 Ch. de la Côte-Sainte-Catherine',
+  city: 'Montréal',
+  zip: 'H3T 2A7',
+  country: 'Canada',
 }
 
-const DEMO_PAYMENT = { card: '4242 4242 4242 4242', expiry: '12/27', cvv: '123', name: 'Marie Dubois' }
+const DEMO_PAYMENT = { card: '4716 8834 2291 0573', expiry: '08/28', cvv: '391', name: 'Cristina Rizzuto' }
 
 function TruckScene() {
   return (
