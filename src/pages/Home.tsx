@@ -19,8 +19,15 @@ export default function Home() {
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-[#0F0D0A] text-white min-h-screen flex flex-col">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_20%_50%,rgba(234,88,12,0.18),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_30%,rgba(234,88,12,0.07),transparent)]" />
+        {/* Lentil texture background */}
+        <img
+          src={`${import.meta.env.BASE_URL}hero-lentils.jpg`}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.15]"
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_20%_50%,rgba(212,64,8,0.22),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_30%,rgba(212,64,8,0.08),transparent)]" />
 
         <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 md:px-12 pt-28 pb-12">
           <p className="text-xs font-medium tracking-[0.25em] uppercase text-brand-500 mb-8">
