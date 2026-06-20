@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 border-t border-white/5 text-center text-xs text-stone-700">
+        <div className="pt-6 border-t border-white/5 text-center text-xs text-stone-500">
           Smash'd est un produit de CrunchLab, développé dans le cadre d'un exercice MBA à HEC Montréal.
           Site réalisé avec React · Vite · Tailwind CSS.
         </div>
