@@ -17,34 +17,37 @@ const DEMO_SHIPPING = {
 
 const DEMO_PAYMENT = { card: '4242 4242 4242 4242', expiry: '12/27', cvv: '123', name: 'Marie Dubois' }
 
-const CONFETTI_PIECES = Array.from({ length: 80 }, (_, i) => ({
-  id: i,
-  x: (i * 1.27) % 100,
-  delay: (i * 0.031) % 2,
-  duration: 2.5 + (i % 5) * 0.4,
-  color: ['#ea580c', '#f97316', '#fbbf24', '#4ade80', '#60a5fa', '#c084fc', '#f43f5e', '#fdba74'][i % 8],
-  size: 7 + (i % 6),
-  wide: i % 3 === 0,
-}))
-
-function Confetti() {
+function TruckScene() {
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-50">
-      {CONFETTI_PIECES.map(p => (
+    <div className="relative h-28 mx-auto overflow-visible" style={{ width: 320 }}>
+      {/* Ground */}
+      <div className="absolute bottom-0 left-[-60px] right-[-60px] h-px bg-white/10" />
+
+      {/* Chip bag */}
+      <div
+        className="absolute bottom-8"
+        style={{ left: '50%', animation: 'bagLoad 3.4s ease-in-out forwards' }}
+      >
         <div
-          key={p.id}
-          style={{
-            position: 'absolute',
-            left: `${p.x}%`,
-            top: '-20px',
-            width: p.wide ? p.size * 1.6 : p.size,
-            height: p.wide ? p.size * 0.5 : p.size,
-            backgroundColor: p.color,
-            borderRadius: p.wide ? '1px' : '50%',
-            animation: `confettiFall ${p.duration}s ${p.delay}s ease-in forwards`,
-          }}
-        />
-      ))}
+          className="w-9 h-11 rounded flex flex-col items-center justify-center gap-0.5 shadow-lg"
+          style={{ background: 'linear-gradient(160deg,#f97316,#c2410c)' }}
+        >
+          <span className="text-[9px] font-black italic text-white leading-none" style={serif}>Smash'd</span>
+          <div className="flex gap-0.5">
+            {[0,1,2].map(i => (
+              <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/30" />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Truck */}
+      <div
+        className="absolute bottom-0 select-none text-6xl leading-none"
+        style={{ left: '50%', marginLeft: -32, animation: 'truckRide 3.4s ease-in-out forwards' }}
+      >
+        🚚
+      </div>
     </div>
   )
 }
@@ -59,14 +62,18 @@ export default function Checkout() {
   const [shipping, setShipping] = useState({ firstName: '', lastName: '', email: '', address: '', city: '', zip: '', country: 'France' })
   const [payment, setPayment] = useState({ card: '', expiry: '', cvv: '', name: '' })
   const [trackStep, setTrackStep] = useState(0)
+  const [showDetails, setShowDetails] = useState(false)
   const [demoRunning, setDemoRunning] = useState(false)
 
   useEffect(() => {
     if (step === 'confirmation') {
-      const t1 = setTimeout(() => setTrackStep(1), 400)
-      const t2 = setTimeout(() => setTrackStep(2), 1200)
-      const t3 = setTimeout(() => setTrackStep(3), 2200)
-      return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
+      setShowDetails(false)
+      setTrackStep(0)
+      const tDetails = setTimeout(() => setShowDetails(true), 3700)
+      const t1 = setTimeout(() => setTrackStep(1), 4200)
+      const t2 = setTimeout(() => setTrackStep(2), 5100)
+      const t3 = setTimeout(() => setTrackStep(3), 6200)
+      return () => { clearTimeout(tDetails); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
     }
   }, [step])
 
@@ -79,8 +86,8 @@ export default function Checkout() {
       setTimeout(() => {
         setStep('confirmation')
         setDemoRunning(false)
-      }, 900)
-    }, 700)
+      }, 2200)
+    }, 2200)
   }
 
   function handleShippingSubmit(e: React.FormEvent) {
@@ -97,94 +104,93 @@ export default function Checkout() {
     const trackLabels = ['Confirmée', 'En préparation', 'Expédiée']
     return (
       <div className="min-h-screen bg-[#0F0D0A] flex items-center justify-center px-6 pt-20 pb-12 relative overflow-hidden">
-        <Confetti />
-
-        {/* Ambient glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(234,88,12,0.15),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(234,88,12,0.12),transparent)]" />
 
         <div className="relative z-10 max-w-lg w-full text-center">
-          {/* Checkmark */}
+          {/* Truck animation — always visible */}
+          <div className="mb-6">
+            <p className="text-xs uppercase tracking-[0.25em] text-orange-500 mb-6">Commande en route</p>
+            <TruckScene />
+          </div>
+
+          {/* Details — appear after truck drives away */}
           <div
-            className="w-24 h-24 mx-auto mb-8 rounded-full flex items-center justify-center text-5xl"
             style={{
-              backgroundColor: '#ea580c',
-              animation: 'scaleIn 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards',
+              opacity: showDetails ? 1 : 0,
+              transform: showDetails ? 'translateY(0)' : 'translateY(16px)',
+              transition: 'opacity 0.6s ease, transform 0.6s ease',
             }}
           >
-            ✓
-          </div>
-
-          <p className="text-xs font-medium uppercase tracking-[0.25em] text-orange-500 mb-3">Commande enregistrée</p>
-          <h1 className="text-4xl md:text-5xl italic text-white mb-2" style={serif}>C'est parti !</h1>
-          <p className="text-stone-400 mb-1">
-            Merci {shipping.firstName}, votre commande de {qty} × Smash'd est confirmée.
-          </p>
-          <p className="text-sm text-stone-500 mb-10">
-            Un email a été envoyé à <span className="text-stone-300">{shipping.email}</span>
-          </p>
-
-          {/* Order number */}
-          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-10">
-            <span className="text-xs text-stone-500 uppercase tracking-wider">Commande</span>
-            <span className="text-sm font-mono font-bold text-orange-400">#SM-00042</span>
-          </div>
-
-          {/* Live tracking */}
-          <div className="bg-white/4 border border-white/8 rounded-2xl p-6 mb-10">
-            <p className="text-xs uppercase tracking-widest text-stone-500 mb-5">Suivi en temps réel</p>
-            <div className="flex items-center justify-between relative">
-              {/* connector line */}
-              <div className="absolute left-[calc(16.6%)] right-[calc(16.6%)] top-4 h-px bg-white/10" />
-              <div
-                className="absolute left-[calc(16.6%)] top-4 h-px bg-orange-500 transition-all duration-700"
-                style={{ width: trackStep >= 2 ? '33%' : trackStep >= 1 ? '0%' : '0%', right: 'auto' }}
-              />
-              <div
-                className="absolute top-4 h-px bg-orange-500 transition-all duration-700"
-                style={{
-                  left: 'calc(50%)',
-                  width: trackStep >= 3 ? 'calc(33.3% - 0px)' : '0%',
-                }}
-              />
-
-              {trackLabels.map((label, i) => (
-                <div key={label} className="flex flex-col items-center gap-2 relative z-10">
-                  <div
-                    className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-all duration-500"
-                    style={{
-                      borderColor: trackStep > i ? '#ea580c' : trackStep === i ? '#ea580c' : 'rgba(255,255,255,0.15)',
-                      backgroundColor: trackStep > i ? '#ea580c' : trackStep === i ? 'rgba(234,88,12,0.15)' : 'transparent',
-                      color: trackStep >= i ? '#ea580c' : 'rgba(255,255,255,0.2)',
-                      animation: trackStep === i + 1 ? 'trackPulse 1s ease 0.2s 3' : 'none',
-                    }}
-                  >
-                    {trackStep > i ? '✓' : i + 1}
-                  </div>
-                  <span
-                    className="text-xs font-medium transition-colors duration-500"
-                    style={{ color: trackStep > i ? '#f97316' : trackStep === i + 1 ? '#e5e7eb' : 'rgba(255,255,255,0.25)' }}
-                  >
-                    {label}
-                  </span>
-                </div>
-              ))}
+            {/* Checkmark */}
+            <div
+              className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-4xl font-bold text-white"
+              style={{
+                backgroundColor: '#ea580c',
+                animation: showDetails ? 'scaleIn 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards' : 'none',
+                opacity: 0,
+              }}
+            >
+              ✓
             </div>
-            {trackStep >= 3 && (
-              <p className="text-xs text-orange-400 text-center mt-4 animate-fadeInUp">
-                Livraison estimée sous 3 à 5 jours ouvrés
-              </p>
-            )}
-          </div>
 
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full text-white transition-colors"
-            style={{ backgroundColor: '#ea580c' }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#f97316')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#ea580c')}
-          >
-            Retour à l'accueil
-          </Link>
+            <h1 className="text-4xl md:text-5xl italic text-white mb-2" style={serif}>C'est parti !</h1>
+            <p className="text-stone-400 mb-1">
+              Merci {shipping.firstName}, votre commande de {qty} × Smash'd est confirmée.
+            </p>
+            <p className="text-sm text-stone-500 mb-8">
+              Un email a été envoyé à <span className="text-stone-300">{shipping.email}</span>
+            </p>
+
+            {/* Order number */}
+            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-8">
+              <span className="text-xs text-stone-500 uppercase tracking-wider">Commande</span>
+              <span className="text-sm font-mono font-bold text-orange-400">#SM-00042</span>
+            </div>
+
+            {/* Live tracking */}
+            <div className="bg-white/4 border border-white/8 rounded-2xl p-6 mb-8">
+              <p className="text-xs uppercase tracking-widest text-stone-500 mb-5">Suivi en temps réel</p>
+              <div className="flex items-start justify-between relative">
+                <div className="absolute left-[16%] right-[16%] top-4 h-px bg-white/10" />
+                {trackLabels.map((label, i) => (
+                  <div key={label} className="flex flex-col items-center gap-2 relative z-10">
+                    <div
+                      className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-all duration-500"
+                      style={{
+                        borderColor: trackStep > i ? '#ea580c' : trackStep === i + 1 ? '#ea580c' : 'rgba(255,255,255,0.15)',
+                        backgroundColor: trackStep > i ? '#ea580c' : trackStep === i + 1 ? 'rgba(234,88,12,0.15)' : 'transparent',
+                        color: trackStep >= i + 1 ? '#ea580c' : 'rgba(255,255,255,0.2)',
+                        animation: trackStep === i + 1 ? 'trackPulse 1s ease 0.1s 3' : 'none',
+                      }}
+                    >
+                      {trackStep > i ? '✓' : i + 1}
+                    </div>
+                    <span
+                      className="text-xs font-medium transition-colors duration-500 text-center"
+                      style={{ color: trackStep > i ? '#f97316' : trackStep === i + 1 ? '#e5e7eb' : 'rgba(255,255,255,0.25)' }}
+                    >
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              {trackStep >= 3 && (
+                <p className="text-xs text-orange-400 text-center mt-4 animate-fadeInUp">
+                  Livraison estimée sous 3 à 5 jours ouvrés
+                </p>
+              )}
+            </div>
+
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full text-white transition-colors"
+              style={{ backgroundColor: '#ea580c' }}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#f97316')}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#ea580c')}
+            >
+              Retour à l'accueil
+            </Link>
+          </div>
         </div>
       </div>
     )
@@ -210,8 +216,8 @@ export default function Checkout() {
             {demoRunning ? (
               <>
                 <span
-                  className="w-3 h-3 rounded-full border border-orange-400 border-t-transparent"
-                  style={{ animation: 'spin 0.6s linear infinite', display: 'inline-block' }}
+                  className="w-3 h-3 rounded-full border-2 border-orange-400 border-t-transparent inline-block"
+                  style={{ animation: 'spin 0.7s linear infinite' }}
                 />
                 Démo en cours...
               </>
@@ -222,8 +228,6 @@ export default function Checkout() {
         </div>
 
         <div className="grid lg:grid-cols-[1fr_360px] gap-10">
-
-          {/* Form */}
           <div>
             {/* Steps indicator */}
             <div className="flex items-center gap-3 mb-8">
@@ -259,9 +263,7 @@ export default function Checkout() {
                     <div key={f.id}>
                       <label className="block text-sm font-medium text-stone-700 mb-1">{f.label}</label>
                       <input
-                        required
-                        type="text"
-                        placeholder={f.placeholder}
+                        required type="text" placeholder={f.placeholder}
                         value={shipping[f.id as keyof typeof shipping]}
                         onChange={e => setShipping(s => ({ ...s, [f.id]: e.target.value }))}
                         className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white"
@@ -272,9 +274,7 @@ export default function Checkout() {
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-stone-700 mb-1">Email</label>
                   <input
-                    required
-                    type="email"
-                    placeholder="jean@exemple.fr"
+                    required type="email" placeholder="jean@exemple.fr"
                     value={shipping.email}
                     onChange={e => setShipping(s => ({ ...s, email: e.target.value }))}
                     className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white"
@@ -283,9 +283,7 @@ export default function Checkout() {
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-stone-700 mb-1">Adresse</label>
                   <input
-                    required
-                    type="text"
-                    placeholder="12 rue de la Paix"
+                    required type="text" placeholder="12 rue de la Paix"
                     value={shipping.address}
                     onChange={e => setShipping(s => ({ ...s, address: e.target.value }))}
                     className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white"
@@ -299,9 +297,7 @@ export default function Checkout() {
                     <div key={f.id} className={f.span === 2 ? 'sm:col-span-2' : ''}>
                       <label className="block text-sm font-medium text-stone-700 mb-1">{f.label}</label>
                       <input
-                        required
-                        type="text"
-                        placeholder={f.placeholder}
+                        required type="text" placeholder={f.placeholder}
                         value={shipping[f.id as keyof typeof shipping]}
                         onChange={e => setShipping(s => ({ ...s, [f.id]: e.target.value }))}
                         className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white"
@@ -327,9 +323,7 @@ export default function Checkout() {
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-stone-700 mb-1">Nom sur la carte</label>
                   <input
-                    required
-                    type="text"
-                    placeholder="Jean Dupont"
+                    required type="text" placeholder="Jean Dupont"
                     value={payment.name}
                     onChange={e => setPayment(p => ({ ...p, name: e.target.value }))}
                     className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white"
@@ -338,10 +332,7 @@ export default function Checkout() {
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-stone-700 mb-1">Numéro de carte</label>
                   <input
-                    required
-                    type="text"
-                    placeholder="4242 4242 4242 4242"
-                    maxLength={19}
+                    required type="text" placeholder="4242 4242 4242 4242" maxLength={19}
                     value={payment.card}
                     onChange={e => setPayment(p => ({ ...p, card: e.target.value.replace(/\D/g, '').replace(/(\d{4})/g, '$1 ').trim() }))}
                     className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white font-mono"
@@ -355,9 +346,7 @@ export default function Checkout() {
                     <div key={f.id}>
                       <label className="block text-sm font-medium text-stone-700 mb-1">{f.label}</label>
                       <input
-                        required
-                        type="text"
-                        placeholder={f.placeholder}
+                        required type="text" placeholder={f.placeholder}
                         maxLength={f.id === 'cvv' ? 3 : 5}
                         value={payment[f.id as keyof typeof payment]}
                         onChange={e => setPayment(p => ({ ...p, [f.id]: e.target.value }))}
