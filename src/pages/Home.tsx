@@ -202,7 +202,7 @@ export default function Home() {
                 <img
                   src={`${import.meta.env.BASE_URL}crunchlab-logo.png`}
                   alt="CrunchLab"
-                  className="h-24 w-auto drop-shadow-lg"
+                  className="h-32 w-auto drop-shadow-lg"
                 />
               </div>
               <div className="flex gap-3 flex-wrap">
@@ -221,7 +221,7 @@ export default function Home() {
               <div>
                 <h4 className="text-sm font-semibold text-white mb-3">Modèle de fabrication</h4>
                 <p className="text-sm text-stone-400 leading-relaxed">
-                  Production sous-traitée auprès de co-manufacturers spécialisés en extrusion thermique et séchage par air pulsé. Procédés standards, facilement scalables, qui permettent de rester agiles sans investir en capex industriel.
+                  CrunchLab travaille avec des co-manufacturers sélectionnés pour leurs certifications bio et leurs standards qualité. Volume flexible selon les besoins du distributeur — format pilote ou montée en cadence, sans délai d'intégration.
                 </p>
               </div>
             </div>
@@ -257,7 +257,7 @@ export default function Home() {
                     { icon: '🌿', title: 'Certifié bio, sans gluten, sans OGM', desc: 'Certifications reconnues par la grande distribution et les épiceries fines — accès facilité aux rayons santé et bio.' },
                     { icon: '📋', title: 'Clean label garanti', desc: 'Liste d\'ingrédients courte et lisible, conforme aux attentes des acheteurs soucieux de transparence.' },
                     { icon: '📈', title: 'Volume flexible', desc: 'Petites commandes en phase pilote, capacité industrielle disponible pour accompagner la croissance sans délai.' },
-                    { icon: '🤝', title: 'Expérience marques tierces', desc: 'Partenaire habitué à produire sous marque privée — réactivité éprouvée et respect des specs produit.' },
+                    { icon: '✅', title: 'Sécurité alimentaire certifiée', desc: 'HACCP en place, zéro contamination croisée avec allergènes non déclarés. Documentation lot disponible à chaque commande.' },
                   ].map(r => (
                     <div key={r.title} className="bg-white/5 border border-white/8 rounded-xl p-4">
                       <div className="text-base mb-1">{r.icon}</div>

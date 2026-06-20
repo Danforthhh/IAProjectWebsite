@@ -15,7 +15,7 @@ export default function Navigation() {
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 bg-stone-950/95 backdrop-blur-md border-b border-white/8 transition-all duration-300"
-      style={{ paddingTop: scrolled ? '10px' : '18px', paddingBottom: scrolled ? '10px' : '18px' }}
+      style={{ paddingTop: scrolled ? '10px' : '14px', paddingBottom: scrolled ? '10px' : '14px' }}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
@@ -23,17 +23,17 @@ export default function Navigation() {
             src={`${import.meta.env.BASE_URL}crunchlab-logo.png`}
             alt="CrunchLab"
             className="w-auto transition-all duration-300"
-            style={{ height: scrolled ? '28px' : '56px' }}
+            style={{ height: scrolled ? '40px' : '80px' }}
           />
           <div className="border-l border-white/15 pl-3">
             <span
               className="font-black italic text-white block leading-tight transition-all duration-300"
-              style={{ ...serif, fontSize: scrolled ? '1.1rem' : '1.5rem' }}
+              style={{ ...serif, fontSize: scrolled ? '1.2rem' : '1.6rem' }}
             >
               Smash'd
             </span>
             {!scrolled && (
-              <span className="text-sm text-white/80 font-medium leading-none block">
+              <span className="text-base text-white/90 font-medium leading-none block mt-0.5">
                 chips de lentilles
               </span>
             )}
