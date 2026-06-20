@@ -6,12 +6,18 @@ export default function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/92 backdrop-blur-md border-b border-stone-100">
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-3">
           <div>
             <span className="text-2xl font-black italic text-stone-900 block leading-tight" style={serif}>Smash'd</span>
-            <span className="text-[10px] text-stone-400 font-medium leading-none hidden sm:block">by CrunchLab</span>
           </div>
-          <span className="text-xs bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full font-medium hidden sm:inline">100% Végétal</span>
+          <div className="hidden sm:flex items-center gap-2 border-l border-stone-200 pl-3">
+            <img
+              src={`${import.meta.env.BASE_URL}crunchlab-logo.png`}
+              alt="CrunchLab"
+              className="h-7 w-auto"
+            />
+          </div>
+          <span className="text-xs bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full font-medium hidden md:inline">100% Végétal</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
