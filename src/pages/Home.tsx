@@ -198,7 +198,7 @@ export default function Home() {
           <div className="bg-stone-950 rounded-3xl p-8 md:p-10 text-white">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
               <div>
-                <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-3">Produit par</span>
+                <span className="text-sm font-medium uppercase tracking-[0.15em] text-brand-400 block mb-3">Produit par</span>
                 <img
                   src={`${import.meta.env.BASE_URL}crunchlab-logo.png`}
                   alt="CrunchLab"
@@ -243,7 +243,7 @@ export default function Home() {
             <div className="mt-8 pt-8 border-t border-white/8">
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="shrink-0">
-                  <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-2">Partenaire de fabrication</span>
+                  <span className="text-sm font-medium uppercase tracking-[0.15em] text-brand-400 block mb-2">Partenaire de fabrication</span>
                   <div className="text-2xl font-bold text-white">Frankie's Organic</div>
                   <div className="text-sm text-stone-400">Aliments Biologiques Frankie inc.</div>
                   <div className="space-y-1.5 text-xs text-stone-400 mt-4">
@@ -254,10 +254,10 @@ export default function Home() {
                 </div>
                 <div className="flex-1 grid sm:grid-cols-2 gap-3">
                   {[
-                    { icon: '⚙️', title: 'Extrusion thermique', desc: 'Infrastructure déjà adaptée aux collations extrudées végétales — aucun investissement capex requis.' },
-                    { icon: '🤖', title: 'Production robotisée', desc: 'Équipements modernes avec système de convoyage intelligent. Capacité de montée en volume rapide.' },
-                    { icon: '🏷️', title: 'Private label', desc: 'Expérience en sous-traitance pour d\'autres marques — flexibilité pour CrunchLab sans engagement fixe.' },
-                    { icon: '🌱', title: 'ADN compatible', desc: 'Certifié bio, sans gluten, sans OGM. Aligné avec le positionnement clean label de Smash\'d.' },
+                    { icon: '🌿', title: 'Certifié bio, sans gluten, sans OGM', desc: 'Certifications reconnues par la grande distribution et les épiceries fines — accès facilité aux rayons santé et bio.' },
+                    { icon: '📋', title: 'Clean label garanti', desc: 'Liste d\'ingrédients courte et lisible, conforme aux attentes des acheteurs soucieux de transparence.' },
+                    { icon: '📈', title: 'Volume flexible', desc: 'Petites commandes en phase pilote, capacité industrielle disponible pour accompagner la croissance sans délai.' },
+                    { icon: '🤝', title: 'Expérience marques tierces', desc: 'Partenaire habitué à produire sous marque privée — réactivité éprouvée et respect des specs produit.' },
                   ].map(r => (
                     <div key={r.title} className="bg-white/5 border border-white/8 rounded-xl p-4">
                       <div className="text-base mb-1">{r.icon}</div>

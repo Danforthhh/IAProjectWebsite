@@ -33,7 +33,7 @@ export default function Navigation() {
               Smash'd
             </span>
             {!scrolled && (
-              <span className="text-xs text-white/70 font-medium leading-none block">
+              <span className="text-sm text-white/80 font-medium leading-none block">
                 chips de lentilles
               </span>
             )}

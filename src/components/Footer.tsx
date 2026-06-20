@@ -25,7 +25,7 @@ export default function Footer() {
               alt="CrunchLab"
               className="h-14 w-auto"
             />
-            <p className="text-xs text-stone-600">Concept MBA HEC Montréal · Built with Claude</p>
+            <p className="text-sm text-stone-400">Concept MBA HEC Montréal · Built with Claude</p>
           </div>
         </div>
 
