@@ -20,13 +20,13 @@ export default function Footer() {
           </div>
 
           <div className="text-xs text-stone-600 text-center md:text-right">
-            <p>Concept MBA · GenAI Exercise</p>
-            <p className="mt-1">Built with GPT-4 · Hosted on GitHub Pages</p>
+            <p>CrunchLab · Concept MBA HEC Montréal</p>
+            <p className="mt-1">Built with Claude · Hosted on GitHub Pages</p>
           </div>
         </div>
 
         <div className="pt-6 border-t border-white/5 text-center text-xs text-stone-700">
-          Smash'd est un concept développé dans le cadre d'un exercice académique MBA.
+          Smash'd est un produit de CrunchLab, développé dans le cadre d'un exercice MBA à HEC Montréal.
           Site réalisé avec React · Vite · Tailwind CSS.
         </div>
       </div>

@@ -187,8 +187,48 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Step 5 placeholder */}
-          <Placeholder step="Étape 5 — À venir" title="L'entreprise & le fabricant" />
+          {/* Step 5 — CrunchLab */}
+          <div className="bg-stone-950 rounded-3xl p-8 md:p-10 text-white">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+              <div>
+                <span className="text-xs font-medium uppercase tracking-[0.2em] text-orange-400 block mb-2">L'entreprise</span>
+                <h3 className="text-3xl italic" style={serif}>CrunchLab</h3>
+                <p className="text-stone-400 mt-1 text-sm italic">"L'innovation gourmande."</p>
+              </div>
+              <div className="flex gap-3 flex-wrap">
+                {['100% Végétal', 'Anti-austérité', 'Science du croustillant'].map(tag => (
+                  <span key={tag} className="text-xs border border-orange-500/40 text-orange-400 px-3 py-1 rounded-full">{tag}</span>
+                ))}
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h4 className="text-sm font-semibold text-white mb-3">Notre philosophie</h4>
+                <p className="text-sm text-stone-400 leading-relaxed">
+                  CrunchLab produit des snacks gourmands sans compromis. Là où la plupart des marques végétales sacrifient le goût au nom de la santé, CrunchLab fait le choix inverse : le plaisir immédiat d'abord. L'anti-snack austère.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-white mb-3">Modèle de fabrication</h4>
+                <p className="text-sm text-stone-400 leading-relaxed">
+                  Production sous-traitée auprès de co-manufacturers spécialisés en extrusion thermique et séchage par air pulsé. Procédés standards, facilement scalables, qui permettent de rester agiles sans investir en capex industriel.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { label: 'Pringles', note: 'Contient lactosérum', icon: '✗' },
+                { label: 'Ruffles', note: 'Contient poudre de lait', icon: '✗' },
+                { label: 'Smash\'d', note: '100% végétal, saveur identique', icon: '✓' },
+                { label: 'Marché cible', note: 'Flexitariens & lactose-intolérants', icon: '→' },
+              ].map(c => (
+                <div key={c.label} className={`rounded-xl p-3 border ${c.icon === '✓' ? 'border-orange-500/40 bg-orange-500/8' : c.icon === '→' ? 'border-white/10 bg-white/4' : 'border-white/8 bg-white/3'}`}>
+                  <div className={`text-xs font-bold mb-1 ${c.icon === '✓' ? 'text-orange-400' : c.icon === '→' ? 'text-stone-300' : 'text-stone-500'}`}>{c.icon} {c.label}</div>
+                  <div className="text-xs text-stone-500">{c.note}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
