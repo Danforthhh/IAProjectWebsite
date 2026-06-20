@@ -115,7 +115,12 @@ function ProductCard({ product, onClick }: { product: Product; onClick: () => vo
           <div className="flex items-center gap-2">
             <span className="text-2xl">{product.emoji}</span>
             <div>
-              <h3 className="font-bold text-stone-900 text-lg leading-tight">{product.name}</h3>
+              <h3
+                className="italic text-stone-900 text-xl leading-tight"
+                style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
+              >
+                {product.name}
+              </h3>
               <p className="text-xs text-stone-400">{product.creator}</p>
             </div>
           </div>
@@ -172,11 +177,14 @@ export default function Products() {
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Les Produits</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">
+          <span className="inline-block text-xs font-medium uppercase tracking-[0.2em] text-amber-600 mb-4">Les Produits</span>
+          <h2
+            className="text-5xl md:text-6xl italic text-stone-900 mb-4"
+            style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
+          >
             Cinq concepts. Cinq IA.
           </h2>
-          <p className="text-stone-500 max-w-xl mx-auto text-lg">
+          <p className="text-stone-500 max-w-xl mx-auto text-lg font-light">
             Cliquez sur un produit pour découvrir sa formulation, ses scores de viabilité et l'analyse IA associée.
           </p>
         </div>

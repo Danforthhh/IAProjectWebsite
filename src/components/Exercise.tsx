@@ -34,11 +34,14 @@ export default function Exercise() {
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">L'Exercice</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">
+          <span className="inline-block text-xs font-medium uppercase tracking-[0.2em] text-amber-600 mb-4">L'Exercice</span>
+          <h2
+            className="text-5xl md:text-6xl italic text-stone-900 mb-4"
+            style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
+          >
             Comment l'IA construit une marque
           </h2>
-          <p className="text-stone-500 max-w-xl mx-auto text-lg">
+          <p className="text-stone-500 max-w-xl mx-auto text-lg font-light">
             Un exercice MBA en 4 étapes pour explorer les capacités réelles de la GenAI dans un processus d'innovation produit.
           </p>
         </div>

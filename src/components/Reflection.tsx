@@ -67,11 +67,14 @@ export default function Reflection() {
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-400 mb-3">Réflexion Critique</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <span className="inline-block text-xs font-medium uppercase tracking-[0.2em] text-amber-400 mb-4">Réflexion Critique</span>
+          <h2
+            className="text-5xl md:text-6xl italic mb-4"
+            style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
+          >
             L'IA en toute honnêteté
           </h2>
-          <p className="text-stone-400 max-w-xl mx-auto text-lg">
+          <p className="text-stone-400 max-w-xl mx-auto text-lg font-light">
             Ce que la GenAI fait mieux que nous. Ce qu'elle ne peut pas faire. Et pourquoi l'humain reste au centre.
           </p>
         </div>

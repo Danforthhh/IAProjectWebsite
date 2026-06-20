@@ -1,78 +1,116 @@
+import { products } from '../data/products'
+
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-stone-950 text-white">
-      {/* Ambient background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(217,119,6,0.3),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_80%_80%,rgba(234,179,8,0.1),transparent)]" />
+    <section className="relative min-h-screen flex flex-col bg-[#0F0D0A] text-white overflow-hidden">
+      {/* Very subtle warm texture */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_30%_40%,rgba(180,83,9,0.12),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_70%,rgba(201,145,58,0.06),transparent)]" />
 
-      {/* Subtle grid */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* MBA badge */}
-        <div className="animate-fadeInUp inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm text-amber-300 mb-8">
-          <span>🎓</span>
-          <span className="font-medium">MBA · Exercice Generative AI</span>
+      {/* Main content — editorial two-column on desktop */}
+      <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 md:px-12">
+        {/* Top eyebrow */}
+        <div className="pt-28 pb-0">
+          <p className="text-xs font-medium tracking-[0.25em] uppercase text-[#C8912E] mb-8">
+            MBA · Exercice Generative AI · 2026
+          </p>
         </div>
 
-        {/* Main title */}
-        <h1 className="animate-fadeInUp-delay-1 text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-          Building an{' '}
-          <span className="gold-shimmer">AI First</span>
-          <br />
-          Snack Company
-        </h1>
+        {/* Editorial title block */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:gap-16 pb-12">
+          {/* Left: big title */}
+          <div className="flex-1">
+            <h1
+              className="leading-[0.92] tracking-tight mb-8"
+              style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
+            >
+              <span className="block text-[clamp(3.5rem,9vw,8rem)] text-white">
+                Building an
+              </span>
+              <span
+                className="block text-[clamp(3.5rem,9vw,8rem)] italic"
+                style={{ color: '#C8912E' }}
+              >
+                AI First
+              </span>
+              <span className="block text-[clamp(3.5rem,9vw,8rem)] text-white">
+                Snack Company
+              </span>
+            </h1>
 
-        {/* Subtitle */}
-        <p className="animate-fadeInUp-delay-2 text-lg md:text-xl text-stone-300 max-w-2xl mx-auto mb-4 leading-relaxed">
-          Cinq étudiants. Cinq outils d'IA générative. Cinq concepts de snacks innovants conçus de A à Z.
-          De la formulation à la stratégie commerciale — entièrement assistés par l'IA.
-        </p>
+            <p className="text-base md:text-lg text-stone-300 max-w-lg leading-relaxed mb-8 font-light">
+              Cinq étudiants. Cinq outils d'IA générative. Cinq snacks conçus en jours —
+              formulation, production industrielle et stratégie commerciale incluses.
+            </p>
 
-        <p className="animate-fadeInUp-delay-2 text-sm text-stone-400 mb-12">
-          Claude · Google Gemini · Microsoft Copilot · GPT-4
-        </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="#produits"
+                className="inline-flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-full transition-all"
+                style={{ backgroundColor: '#C8912E', color: '#0F0D0A' }}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#E8A83C')}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#C8912E')}
+              >
+                Découvrir les produits
+              </a>
+              <a
+                href="#analyse"
+                className="inline-flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-full bg-white/8 hover:bg-white/14 border border-white/12 transition-colors"
+              >
+                Analyse comparative
+              </a>
+            </div>
+          </div>
 
-        {/* CTA */}
-        <div className="animate-fadeInUp-delay-3 flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#produits"
-            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-900 font-semibold px-8 py-3 rounded-full transition-colors"
-          >
-            Voir les produits
-            <span>↓</span>
-          </a>
-          <a
-            href="#analyse"
-            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium px-8 py-3 rounded-full transition-colors"
-          >
-            Analyse comparative
-          </a>
+          {/* Right: AI tools used — stacked list */}
+          <div className="hidden lg:block shrink-0 text-right pb-2">
+            <p className="text-xs tracking-widest uppercase text-stone-500 mb-4">Outils utilisés</p>
+            <div className="space-y-1.5">
+              {[
+                { tool: 'Claude', company: 'Anthropic', count: 2 },
+                { tool: 'Gemini', company: 'Google', count: 1 },
+                { tool: 'Copilot', company: 'Microsoft', count: 1 },
+                { tool: 'GPT-4', company: 'OpenAI', count: 1 },
+              ].map(t => (
+                <div key={t.tool} className="flex items-baseline justify-end gap-2">
+                  <span className="text-xs text-stone-500">{t.company}</span>
+                  <span className="text-sm font-medium text-stone-200">{t.tool}</span>
+                  <span className="text-xs text-stone-600 tabular-nums">×{t.count}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Product emoji row */}
-        <div className="animate-fadeInUp-delay-3 mt-16 flex items-center justify-center gap-8 text-3xl opacity-60">
-          <span title="Smash'd">🌿</span>
-          <span className="text-white/30">·</span>
-          <span title="Honeycrisp">🍯</span>
-          <span className="text-white/30">·</span>
-          <span title="KÜB">🟩</span>
-          <span className="text-white/30">·</span>
-          <span title="GlowBar">🍋</span>
-          <span className="text-white/30">·</span>
-          <span title="La Pépite" className="opacity-100 text-4xl">✨</span>
-        </div>
-      </div>
+        {/* Divider */}
+        <div className="h-px bg-white/8 w-full" />
 
-      {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white/30 text-sm flex flex-col items-center gap-1">
-        <span>↓</span>
+        {/* Signature: 5 product names as a large typographic shelf */}
+        <div className="flex-1 flex flex-col justify-end pb-10 pt-6">
+          <p className="text-xs tracking-[0.2em] uppercase text-stone-600 mb-5">Les cinq concepts</p>
+          <div className="flex flex-wrap items-end gap-x-6 gap-y-3 md:gap-x-10">
+            {products.map((p) => (
+              <a
+                key={p.id}
+                href="#produits"
+                className="group flex items-baseline gap-2 transition-opacity hover:opacity-100"
+                style={{ opacity: p.isHero ? 1 : 0.45 }}
+              >
+                <span
+                  className="font-bold leading-none transition-colors"
+                  style={{
+                    fontFamily: "'DM Serif Display', Georgia, serif",
+                    fontSize: p.isHero ? 'clamp(2.2rem, 4.5vw, 4rem)' : 'clamp(1.6rem, 3vw, 2.6rem)',
+                    color: p.isHero ? '#C8912E' : '#e5e7eb',
+                  }}
+                >
+                  {p.name}
+                </span>
+                <span className="text-xs text-stone-600 hidden sm:inline">{p.aiTool}</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
