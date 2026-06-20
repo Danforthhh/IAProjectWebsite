@@ -190,10 +190,18 @@ export default function Home() {
           {/* Step 5 — CrunchLab */}
           <div className="bg-stone-950 rounded-3xl p-8 md:p-10 text-white">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
-              <div>
-                <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-2">L'entreprise</span>
-                <h3 className="text-3xl italic" style={serif}>CrunchLab</h3>
-                <p className="text-stone-400 mt-1 text-sm italic">"L'innovation gourmande."</p>
+              <div className="flex items-center gap-5">
+                <div className="bg-white rounded-2xl p-3 shrink-0">
+                  <img
+                    src={`${import.meta.env.BASE_URL}crunchlab-logo.png`}
+                    alt="CrunchLab"
+                    className="h-16 w-auto"
+                  />
+                </div>
+                <div>
+                  <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-1">L'entreprise</span>
+                  <p className="text-stone-400 text-sm italic">"L'innovation gourmande."</p>
+                </div>
               </div>
               <div className="flex gap-3 flex-wrap">
                 {['100% Végétal', 'Anti-austérité', 'Science du croustillant'].map(tag => (
