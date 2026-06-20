@@ -30,7 +30,7 @@ function TruckScene() {
       >
         <div
           className="w-9 h-11 rounded flex flex-col items-center justify-center gap-0.5 shadow-lg"
-          style={{ background: 'linear-gradient(160deg,#f97316,#c2410c)' }}
+          style={{ background: 'linear-gradient(160deg,#e03300,#c2410c)' }}
         >
           <span className="text-[9px] font-black italic text-white leading-none" style={serif}>Smash'd</span>
           <div className="flex gap-0.5">
@@ -77,17 +77,43 @@ export default function Checkout() {
     }
   }, [step])
 
-  function handleDemoMode() {
+  async function handleDemoMode() {
     setDemoRunning(true)
-    setShipping(DEMO_SHIPPING)
-    setTimeout(() => {
-      setStep('payment')
-      setPayment(DEMO_PAYMENT)
-      setTimeout(() => {
-        setStep('confirmation')
-        setDemoRunning(false)
-      }, 2200)
-    }, 2200)
+    const pause = (ms: number) => new Promise<void>(r => setTimeout(r, ms))
+
+    const typeShipping = async (key: keyof typeof DEMO_SHIPPING, value: string) => {
+      for (let i = 1; i <= value.length; i++) {
+        setShipping(s => ({ ...s, [key]: value.slice(0, i) }))
+        await pause(32)
+      }
+      await pause(180)
+    }
+    const typePayment = async (key: keyof typeof DEMO_PAYMENT, value: string) => {
+      for (let i = 1; i <= value.length; i++) {
+        setPayment(p => ({ ...p, [key]: value.slice(0, i) }))
+        await pause(32)
+      }
+      await pause(180)
+    }
+
+    await typeShipping('firstName', DEMO_SHIPPING.firstName)
+    await typeShipping('lastName', DEMO_SHIPPING.lastName)
+    await typeShipping('email', DEMO_SHIPPING.email)
+    await typeShipping('address', DEMO_SHIPPING.address)
+    await typeShipping('city', DEMO_SHIPPING.city)
+    await typeShipping('zip', DEMO_SHIPPING.zip)
+
+    await pause(500)
+    setStep('payment')
+
+    await typePayment('name', DEMO_PAYMENT.name)
+    await typePayment('card', DEMO_PAYMENT.card)
+    await typePayment('expiry', DEMO_PAYMENT.expiry)
+    await typePayment('cvv', DEMO_PAYMENT.cvv)
+
+    await pause(500)
+    setStep('confirmation')
+    setDemoRunning(false)
   }
 
   function handleShippingSubmit(e: React.FormEvent) {
@@ -109,7 +135,7 @@ export default function Checkout() {
         <div className="relative z-10 max-w-lg w-full text-center">
           {/* Truck animation — always visible */}
           <div className="mb-6">
-            <p className="text-xs uppercase tracking-[0.25em] text-orange-500 mb-6">Commande en route</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-brand-500 mb-6">Commande en route</p>
             <TruckScene />
           </div>
 
@@ -125,7 +151,7 @@ export default function Checkout() {
             <div
               className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-4xl font-bold text-white"
               style={{
-                backgroundColor: '#ea580c',
+                backgroundColor: '#cc2200',
                 animation: showDetails ? 'scaleIn 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards' : 'none',
                 opacity: 0,
               }}
@@ -144,7 +170,7 @@ export default function Checkout() {
             {/* Order number */}
             <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-8">
               <span className="text-xs text-stone-500 uppercase tracking-wider">Commande</span>
-              <span className="text-sm font-mono font-bold text-orange-400">#SM-00042</span>
+              <span className="text-sm font-mono font-bold text-brand-400">#SM-00042</span>
             </div>
 
             {/* Live tracking */}
@@ -157,9 +183,9 @@ export default function Checkout() {
                     <div
                       className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-all duration-500"
                       style={{
-                        borderColor: trackStep > i ? '#ea580c' : trackStep === i + 1 ? '#ea580c' : 'rgba(255,255,255,0.15)',
-                        backgroundColor: trackStep > i ? '#ea580c' : trackStep === i + 1 ? 'rgba(234,88,12,0.15)' : 'transparent',
-                        color: trackStep >= i + 1 ? '#ea580c' : 'rgba(255,255,255,0.2)',
+                        borderColor: trackStep > i ? '#cc2200' : trackStep === i + 1 ? '#cc2200' : 'rgba(255,255,255,0.15)',
+                        backgroundColor: trackStep > i ? '#cc2200' : trackStep === i + 1 ? 'rgba(234,88,12,0.15)' : 'transparent',
+                        color: trackStep >= i + 1 ? '#cc2200' : 'rgba(255,255,255,0.2)',
                         animation: trackStep === i + 1 ? 'trackPulse 1s ease 0.1s 3' : 'none',
                       }}
                     >
@@ -167,7 +193,7 @@ export default function Checkout() {
                     </div>
                     <span
                       className="text-xs font-medium transition-colors duration-500 text-center"
-                      style={{ color: trackStep > i ? '#f97316' : trackStep === i + 1 ? '#e5e7eb' : 'rgba(255,255,255,0.25)' }}
+                      style={{ color: trackStep > i ? '#e03300' : trackStep === i + 1 ? '#e5e7eb' : 'rgba(255,255,255,0.25)' }}
                     >
                       {label}
                     </span>
@@ -175,7 +201,7 @@ export default function Checkout() {
                 ))}
               </div>
               {trackStep >= 3 && (
-                <p className="text-xs text-orange-400 text-center mt-4 animate-fadeInUp">
+                <p className="text-xs text-brand-400 text-center mt-4 animate-fadeInUp">
                   Livraison estimée sous 3 à 5 jours ouvrés
                 </p>
               )}
@@ -184,9 +210,9 @@ export default function Checkout() {
             <Link
               to="/"
               className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full text-white transition-colors"
-              style={{ backgroundColor: '#ea580c' }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#f97316')}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#ea580c')}
+              style={{ backgroundColor: '#cc2200' }}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#e03300')}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#cc2200')}
             >
               Retour à l'accueil
             </Link>
@@ -208,15 +234,15 @@ export default function Checkout() {
             disabled={demoRunning}
             className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition-all"
             style={{
-              borderColor: '#ea580c',
-              color: demoRunning ? '#fb923c' : '#ea580c',
+              borderColor: '#cc2200',
+              color: demoRunning ? '#fb923c' : '#cc2200',
               backgroundColor: demoRunning ? 'rgba(234,88,12,0.08)' : 'transparent',
             }}
           >
             {demoRunning ? (
               <>
                 <span
-                  className="w-3 h-3 rounded-full border-2 border-orange-400 border-t-transparent inline-block"
+                  className="w-3 h-3 rounded-full border-2 border-brand-400 border-t-transparent inline-block"
                   style={{ animation: 'spin 0.7s linear infinite' }}
                 />
                 Démo en cours...
@@ -238,7 +264,7 @@ export default function Checkout() {
                     <div
                       className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
                       style={{
-                        backgroundColor: step === s ? '#ea580c' : (step === 'payment' && s === 'shipping') ? '#16a34a' : '#e5e7eb',
+                        backgroundColor: step === s ? '#cc2200' : (step === 'payment' && s === 'shipping') ? '#16a34a' : '#e5e7eb',
                         color: step === s || (step === 'payment' && s === 'shipping') ? 'white' : '#6b7280',
                       }}
                     >
@@ -266,7 +292,7 @@ export default function Checkout() {
                         required type="text" placeholder={f.placeholder}
                         value={shipping[f.id as keyof typeof shipping]}
                         onChange={e => setShipping(s => ({ ...s, [f.id]: e.target.value }))}
-                        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white"
+                        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white"
                       />
                     </div>
                   ))}
@@ -277,7 +303,7 @@ export default function Checkout() {
                     required type="email" placeholder="jean@exemple.fr"
                     value={shipping.email}
                     onChange={e => setShipping(s => ({ ...s, email: e.target.value }))}
-                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white"
+                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white"
                   />
                 </div>
                 <div className="mb-4">
@@ -286,7 +312,7 @@ export default function Checkout() {
                     required type="text" placeholder="12 rue de la Paix"
                     value={shipping.address}
                     onChange={e => setShipping(s => ({ ...s, address: e.target.value }))}
-                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white"
+                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white"
                   />
                 </div>
                 <div className="grid sm:grid-cols-3 gap-4 mb-6">
@@ -300,7 +326,7 @@ export default function Checkout() {
                         required type="text" placeholder={f.placeholder}
                         value={shipping[f.id as keyof typeof shipping]}
                         onChange={e => setShipping(s => ({ ...s, [f.id]: e.target.value }))}
-                        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white"
+                        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white"
                       />
                     </div>
                   ))}
@@ -308,9 +334,9 @@ export default function Checkout() {
                 <button
                   type="submit"
                   className="w-full py-3.5 rounded-full font-semibold text-white transition-colors"
-                  style={{ backgroundColor: '#ea580c' }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#f97316')}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#ea580c')}
+                  style={{ backgroundColor: '#cc2200' }}
+                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#e03300')}
+                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#cc2200')}
                 >
                   Continuer vers le paiement
                 </button>
@@ -326,7 +352,7 @@ export default function Checkout() {
                     required type="text" placeholder="Jean Dupont"
                     value={payment.name}
                     onChange={e => setPayment(p => ({ ...p, name: e.target.value }))}
-                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white"
+                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white"
                   />
                 </div>
                 <div className="mb-4">
@@ -335,7 +361,7 @@ export default function Checkout() {
                     required type="text" placeholder="4242 4242 4242 4242" maxLength={19}
                     value={payment.card}
                     onChange={e => setPayment(p => ({ ...p, card: e.target.value.replace(/\D/g, '').replace(/(\d{4})/g, '$1 ').trim() }))}
-                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white font-mono"
+                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white font-mono"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4 mb-6">
@@ -350,7 +376,7 @@ export default function Checkout() {
                         maxLength={f.id === 'cvv' ? 3 : 5}
                         value={payment[f.id as keyof typeof payment]}
                         onChange={e => setPayment(p => ({ ...p, [f.id]: e.target.value }))}
-                        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white font-mono"
+                        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white font-mono"
                       />
                     </div>
                   ))}
@@ -362,9 +388,9 @@ export default function Checkout() {
                 <button
                   type="submit"
                   className="w-full py-3.5 rounded-full font-semibold text-white transition-colors"
-                  style={{ backgroundColor: '#ea580c' }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#f97316')}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#ea580c')}
+                  style={{ backgroundColor: '#cc2200' }}
+                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#e03300')}
+                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#cc2200')}
                 >
                   Confirmer la commande · ${price.toFixed(2)}
                 </button>
@@ -376,8 +402,8 @@ export default function Checkout() {
           <div className="lg:sticky lg:top-24 h-fit">
             <div className="bg-white rounded-2xl border border-stone-100 p-6">
               <h3 className="font-bold text-stone-900 mb-4">Récapitulatif</h3>
-              <div className="flex items-center gap-3 mb-4 p-3 bg-orange-50 rounded-xl">
-                <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center text-white text-lg font-black shrink-0" style={serif}>S</div>
+              <div className="flex items-center gap-3 mb-4 p-3 bg-brand-50 rounded-xl">
+                <div className="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center text-white text-lg font-black shrink-0" style={serif}>S</div>
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-semibold text-stone-900">Smash'd Original</div>
                   <div className="text-xs text-stone-400">Crème Sure & Oignon, 40g</div>

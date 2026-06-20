@@ -13,9 +13,9 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap gap-6 text-sm text-stone-500 justify-center">
-            <Link to="/" className="hover:text-orange-400 transition-colors">Accueil</Link>
-            <Link to="/product" className="hover:text-orange-400 transition-colors">Le Produit</Link>
-            <Link to="/checkout" className="hover:text-orange-400 transition-colors">Commander</Link>
+            <Link to="/" className="hover:text-brand-400 transition-colors">Accueil</Link>
+            <Link to="/product" className="hover:text-brand-400 transition-colors">Le Produit</Link>
+            <Link to="/checkout" className="hover:text-brand-400 transition-colors">Commander</Link>
             <Link to="/annexe" className="hover:text-stone-300 transition-colors">Annexe MBA</Link>
           </div>
 

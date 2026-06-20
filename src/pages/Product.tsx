@@ -17,7 +17,7 @@ export default function Product() {
 
             {/* Visual */}
             <div className="flex flex-col items-center sticky top-24">
-              <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-3xl p-12 w-full flex items-center justify-center">
+              <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-3xl p-12 w-full flex items-center justify-center">
                 <ProductVisual size="lg" />
               </div>
               <div className="flex gap-2 mt-4">
@@ -29,7 +29,7 @@ export default function Product() {
 
             {/* Details */}
             <div className="py-4">
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-orange-500 block mb-3">Chips de lentilles</span>
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-3">Chips de lentilles</span>
               <h1 className="text-5xl md:text-6xl italic text-stone-900 mb-2" style={serif}>Smash'd</h1>
               <p className="text-xl text-stone-500 font-light mb-6">Saveur Crème Sure & Oignon</p>
 
@@ -65,9 +65,9 @@ export default function Product() {
                   to="/checkout"
                   state={{ qty, price: qty * 3.75 }}
                   className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold text-white transition-colors"
-                  style={{ backgroundColor: '#ea580c' }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#f97316')}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#ea580c')}
+                  style={{ backgroundColor: '#cc2200' }}
+                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#e03300')}
+                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#cc2200')}
                 >
                   Commander · ${(qty * 3.75).toFixed(2)}
                 </Link>
@@ -99,7 +99,7 @@ export default function Product() {
       <section className="py-20 bg-[#FAFAF7]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-orange-500 block mb-4">Transparence totale</span>
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-4">Transparence totale</span>
             <h2 className="text-4xl italic text-stone-900" style={serif}>Ce qu'il y a dedans</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
@@ -145,7 +145,7 @@ export default function Product() {
       <section className="py-20 bg-stone-950 text-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-orange-400 block mb-4">Processus de fabrication</span>
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-4">Processus de fabrication</span>
             <h2 className="text-4xl italic" style={serif}>Comment on fabrique Smash'd</h2>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">

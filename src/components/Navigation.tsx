@@ -7,8 +7,11 @@ export default function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/92 backdrop-blur-md border-b border-stone-100">
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <span className="text-2xl font-black italic text-stone-900" style={serif}>Smash'd</span>
-          <span className="text-xs bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full font-medium hidden sm:inline">100% Végétal</span>
+          <div>
+            <span className="text-2xl font-black italic text-stone-900 block leading-tight" style={serif}>Smash'd</span>
+            <span className="text-[10px] text-stone-400 font-medium leading-none hidden sm:block">by CrunchLab</span>
+          </div>
+          <span className="text-xs bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full font-medium hidden sm:inline">100% Végétal</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
@@ -22,7 +25,7 @@ export default function Navigation() {
               to={link.to}
               end={link.to === '/'}
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors ${isActive ? 'text-orange-600' : 'text-stone-600 hover:text-stone-900'}`
+                `text-sm font-medium transition-colors ${isActive ? 'text-brand-600' : 'text-stone-600 hover:text-stone-900'}`
               }
             >
               {link.label}
@@ -42,9 +45,9 @@ export default function Navigation() {
           <Link
             to="/checkout"
             className="text-sm font-semibold px-4 py-2 rounded-full text-white transition-colors"
-            style={{ backgroundColor: '#ea580c' }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#f97316')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#ea580c')}
+            style={{ backgroundColor: '#cc2200' }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#e03300')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#cc2200')}
           >
             Commander
           </Link>

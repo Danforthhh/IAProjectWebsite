@@ -5,8 +5,8 @@ const serif = { fontFamily: "'DM Serif Display', Georgia, serif" }
 
 function Placeholder({ step, title }: { step: string; title: string }) {
   return (
-    <div className="border-2 border-dashed border-orange-200 bg-orange-50/40 rounded-2xl p-8 text-center">
-      <div className="text-xs font-bold uppercase tracking-widest text-orange-400 mb-2">{step}</div>
+    <div className="border-2 border-dashed border-brand-200 bg-brand-50/40 rounded-2xl p-8 text-center">
+      <div className="text-xs font-bold uppercase tracking-widest text-brand-400 mb-2">{step}</div>
       <div className="text-lg font-semibold text-stone-400 italic mb-1" style={serif}>{title}</div>
       <p className="text-sm text-stone-400">Cette section sera complétée une fois les informations disponibles.</p>
     </div>
@@ -23,7 +23,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_30%,rgba(234,88,12,0.07),transparent)]" />
 
         <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 md:px-12 pt-28 pb-12">
-          <p className="text-xs font-medium tracking-[0.25em] uppercase text-orange-500 mb-8">
+          <p className="text-xs font-medium tracking-[0.25em] uppercase text-brand-500 mb-8">
             100% Plant-Based · Lentil Chips · Crème Sure & Oignon
           </p>
 
@@ -34,7 +34,7 @@ export default function Home() {
                 <span className="block text-[clamp(4rem,11vw,9rem)] text-white">The chip</span>
                 <span
                   className="block text-[clamp(4rem,11vw,9rem)] italic"
-                  style={{ color: '#f97316' }}
+                  style={{ color: '#e03300' }}
                 >
                   they forgot
                 </span>
@@ -48,9 +48,9 @@ export default function Home() {
                 <Link
                   to="/product"
                   className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-full transition-all"
-                  style={{ backgroundColor: '#ea580c', color: 'white' }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#f97316')}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#ea580c')}
+                  style={{ backgroundColor: '#cc2200', color: 'white' }}
+                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#e03300')}
+                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#cc2200')}
                 >
                   Découvrir le produit
                 </Link>
@@ -71,7 +71,7 @@ export default function Home() {
                 <div
                   className="absolute -top-3 -right-3 w-16 h-16 rounded-full bg-white text-stone-900 flex flex-col items-center justify-center shadow-lg"
                 >
-                  <span className="text-lg font-black leading-none" style={{ color: '#ea580c' }}>4.7</span>
+                  <span className="text-lg font-black leading-none" style={{ color: '#cc2200' }}>4.7</span>
                   <span className="text-[9px] text-stone-400 font-medium">/5</span>
                 </div>
               </div>
@@ -87,7 +87,7 @@ export default function Home() {
               { val: '0', label: 'Produit laitier' },
             ].map(s => (
               <div key={s.label}>
-                <div className="text-2xl font-black text-white" style={{ color: s.val === '0' ? '#ea580c' : undefined }}>
+                <div className="text-2xl font-black text-white" style={{ color: s.val === '0' ? '#cc2200' : undefined }}>
                   {s.val}
                 </div>
                 <div className="text-xs text-stone-500 uppercase tracking-wider mt-0.5">{s.label}</div>
@@ -102,7 +102,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-orange-500 block mb-4">Le Produit</span>
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-4">Le Produit</span>
               <h2 className="text-5xl italic text-stone-900 mb-6 leading-tight" style={serif}>
                 Du goût. Pas de compromis.
               </h2>
@@ -129,7 +129,7 @@ export default function Home() {
               </div>
               <Link
                 to="/product"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 hover:text-orange-800 transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors"
               >
                 Voir la fiche produit complète →
               </Link>
@@ -139,8 +139,8 @@ export default function Home() {
             <div className="bg-stone-950 rounded-3xl p-8 text-white">
               <p className="text-xs uppercase tracking-widest text-stone-500 mb-6">Formulation</p>
               {[
-                { ing: 'Farine de lentilles', pct: '55%', role: 'Base & texture croustillante', color: '#ea580c' },
-                { ing: 'Fécule de tapioca', pct: '15%', role: 'Liant, légèreté', color: '#f97316' },
+                { ing: 'Farine de lentilles', pct: '55%', role: 'Base & texture croustillante', color: '#cc2200' },
+                { ing: 'Fécule de tapioca', pct: '15%', role: 'Liant, légèreté', color: '#e03300' },
                 { ing: 'Levure nutritionnelle', pct: '8%', role: 'Umami végétal, sans lait', color: '#fb923c' },
                 { ing: 'Poudre d\'oignon', pct: '6%', role: 'Arôme signature', color: '#fdba74' },
                 { ing: 'Acide citrique', pct: '3%', role: 'Note crème sure', color: '#fed7aa' },
@@ -162,10 +162,10 @@ export default function Home() {
       </section>
 
       {/* ── Notre Vision ─────────────────────────────────────── */}
-      <section className="py-24 bg-orange-50">
+      <section className="py-24 bg-brand-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-orange-500 block mb-4">Notre Vision</span>
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-4">Notre Vision</span>
             <h2 className="text-5xl italic text-stone-900 mb-4" style={serif}>Rendre le végétal irrésistible</h2>
             <p className="text-stone-500 max-w-xl mx-auto text-lg font-light">
               Les chips végétales ont progressé de +47% entre 2019 et 2023.
@@ -179,8 +179,8 @@ export default function Home() {
               { stat: '0', label: 'Concurrent végétal direct', period: 'Saveur crème sure & oignon' },
               { stat: '5.0', label: 'Score différenciation', period: 'Note maximale' },
             ].map(s => (
-              <div key={s.label} className="bg-white rounded-2xl p-6 text-center border border-orange-100">
-                <div className="text-4xl font-black text-orange-500 mb-1">{s.stat}</div>
+              <div key={s.label} className="bg-white rounded-2xl p-6 text-center border border-brand-100">
+                <div className="text-4xl font-black text-brand-500 mb-1">{s.stat}</div>
                 <div className="font-semibold text-stone-800 mb-0.5">{s.label}</div>
                 <div className="text-xs text-stone-400">{s.period}</div>
               </div>
@@ -191,13 +191,13 @@ export default function Home() {
           <div className="bg-stone-950 rounded-3xl p-8 md:p-10 text-white">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
               <div>
-                <span className="text-xs font-medium uppercase tracking-[0.2em] text-orange-400 block mb-2">L'entreprise</span>
+                <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-2">L'entreprise</span>
                 <h3 className="text-3xl italic" style={serif}>CrunchLab</h3>
                 <p className="text-stone-400 mt-1 text-sm italic">"L'innovation gourmande."</p>
               </div>
               <div className="flex gap-3 flex-wrap">
                 {['100% Végétal', 'Anti-austérité', 'Science du croustillant'].map(tag => (
-                  <span key={tag} className="text-xs border border-orange-500/40 text-orange-400 px-3 py-1 rounded-full">{tag}</span>
+                  <span key={tag} className="text-xs border border-brand-500/40 text-brand-400 px-3 py-1 rounded-full">{tag}</span>
                 ))}
               </div>
             </div>
@@ -222,8 +222,8 @@ export default function Home() {
                 { label: 'Smash\'d', note: '100% végétal, saveur identique', icon: '✓' },
                 { label: 'Marché cible', note: 'Flexitariens & lactose-intolérants', icon: '→' },
               ].map(c => (
-                <div key={c.label} className={`rounded-xl p-3 border ${c.icon === '✓' ? 'border-orange-500/40 bg-orange-500/8' : c.icon === '→' ? 'border-white/10 bg-white/4' : 'border-white/8 bg-white/3'}`}>
-                  <div className={`text-xs font-bold mb-1 ${c.icon === '✓' ? 'text-orange-400' : c.icon === '→' ? 'text-stone-300' : 'text-stone-500'}`}>{c.icon} {c.label}</div>
+                <div key={c.label} className={`rounded-xl p-3 border ${c.icon === '✓' ? 'border-brand-500/40 bg-brand-500/8' : c.icon === '→' ? 'border-white/10 bg-white/4' : 'border-white/8 bg-white/3'}`}>
+                  <div className={`text-xs font-bold mb-1 ${c.icon === '✓' ? 'text-brand-400' : c.icon === '→' ? 'text-stone-300' : 'text-stone-500'}`}>{c.icon} {c.label}</div>
                   <div className="text-xs text-stone-500">{c.note}</div>
                 </div>
               ))}
@@ -236,7 +236,7 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-orange-500 block mb-4">Notre Cible & Packaging</span>
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-4">Notre Cible & Packaging</span>
             <h2 className="text-5xl italic text-stone-900 mb-4" style={serif}>Pour qui, dans quel emballage</h2>
           </div>
 
@@ -247,10 +247,10 @@ export default function Home() {
                 <span>🎯</span> Profil cible (estimé)
               </h3>
               <ul className="space-y-2 text-sm text-stone-600">
-                <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Flexitariens & consommateurs lactose-intolérants</li>
-                <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> 18–35 ans, attentifs à la composition des produits</li>
-                <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Amateurs de snacks gourmands, sans produits d'origine animale</li>
-                <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Achat en épicerie fine, circuits bio, e-commerce</li>
+                <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> Flexitariens & consommateurs lactose-intolérants</li>
+                <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> 18–35 ans, attentifs à la composition des produits</li>
+                <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> Amateurs de snacks gourmands, sans produits d'origine animale</li>
+                <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> Achat en épicerie fine, circuits bio, e-commerce</li>
               </ul>
             </div>
             <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
@@ -258,10 +258,10 @@ export default function Home() {
                 <span>📦</span> Packaging (estimé)
               </h3>
               <ul className="space-y-2 text-sm text-stone-600">
-                <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Sachet mono-portion 40g, format nomade</li>
-                <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Identité visuelle orange vif + vert végétal</li>
-                <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Claims: 100% Végétal · Sans friture · Source de protéines</li>
-                <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Clean label — liste d'ingrédients courte, lisible</li>
+                <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> Sachet mono-portion 40g, format nomade</li>
+                <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> Identité visuelle orange vif + vert végétal</li>
+                <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> Claims: 100% Végétal · Sans friture · Source de protéines</li>
+                <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> Clean label — liste d'ingrédients courte, lisible</li>
               </ul>
             </div>
           </div>
@@ -274,7 +274,7 @@ export default function Home() {
       <section className="py-24 bg-stone-950 text-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-orange-400 block mb-4">Campagne Marketing</span>
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-4">Campagne Marketing</span>
             <h2 className="text-5xl italic mb-4" style={serif}>Lancer la marque</h2>
             <p className="text-stone-400 max-w-xl mx-auto font-light">
               Stratégie de lancement, canaux, messages clés, et plan de campagne.
