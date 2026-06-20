@@ -9,9 +9,9 @@ const DEMO_SHIPPING = {
   firstName: 'Cristina',
   lastName: 'Rizzuto',
   email: 'cristina.rizzuto@hec.ca',
-  address: '3000 Ch. de la Côte-Sainte-Catherine',
+  address: '501 rue De La Gauchetière Ouest',
   city: 'Montréal',
-  zip: 'H3T 2A7',
+  zip: 'H2Z 1E5',
   country: 'Canada',
 }
 
