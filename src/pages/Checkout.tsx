@@ -31,7 +31,7 @@ export default function Checkout() {
         <div className="max-w-md w-full text-center">
           <div className="text-6xl mb-6">✅</div>
           <h1 className="text-3xl italic text-stone-900 mb-4" style={serif}>Commande confirmée !</h1>
-          <p className="text-stone-500 mb-2">Merci {shipping.firstName} — votre commande de {qty} × Smash'd est enregistrée.</p>
+          <p className="text-stone-500 mb-2">Merci {shipping.firstName}, votre commande de {qty} × Smash'd est enregistrée.</p>
           <p className="text-sm text-stone-400 mb-8">Un email de confirmation a été envoyé à <strong>{shipping.email}</strong>. Livraison estimée : 3–5 jours ouvrés.</p>
           <Link
             to="/"
@@ -201,7 +201,7 @@ export default function Checkout() {
                 </div>
                 <div className="flex items-center gap-2 text-xs text-stone-400 mb-5">
                   <span>🔒</span>
-                  <span>Paiement sécurisé — données cryptées SSL. Simulation uniquement.</span>
+                  <span>Paiement sécurisé · données cryptées SSL. Simulation uniquement.</span>
                 </div>
                 <button
                   type="submit"
@@ -210,7 +210,7 @@ export default function Checkout() {
                   onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#f97316')}
                   onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#ea580c')}
                 >
-                  Confirmer la commande — ${price.toFixed(2)}
+                  Confirmer la commande · ${price.toFixed(2)}
                 </button>
               </form>
             )}

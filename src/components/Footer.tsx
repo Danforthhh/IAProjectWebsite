@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
           <div>
             <div className="text-2xl font-black italic text-white mb-1" style={serif}>Smash'd</div>
-            <p className="text-sm text-stone-500">La chip végétale qui change tout.</p>
+            <p className="text-sm text-stone-500">Chips de lentilles 100% végétales.</p>
           </div>
 
           <div className="flex flex-wrap gap-6 text-sm text-stone-500 justify-center">

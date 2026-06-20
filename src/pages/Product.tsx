@@ -41,7 +41,7 @@ export default function Product() {
 
               <p className="text-stone-600 leading-relaxed mb-8">
                 La seule chip qui reproduit exactement la saveur crème sure & oignon sans le moindre produit laitier.
-                Base lentilles ultra-croustillante, séchée à l'air — pas un gramme de friture.
+                Base lentilles ultra-croustillante, séchée à l'air. Pas de friture.
               </p>
 
               {/* Qty + CTA */}
@@ -69,7 +69,7 @@ export default function Product() {
                   onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#f97316')}
                   onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#ea580c')}
                 >
-                  Commander — ${(qty * 3.75).toFixed(2)}
+                  Commander · ${(qty * 3.75).toFixed(2)}
                 </Link>
               </div>
 
@@ -150,10 +150,10 @@ export default function Product() {
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { step: '01', title: 'Extrusion thermique', desc: 'Mélange farine lentilles + tapioca extrudé à chaud via vis bi-vis — forme et texture obtenues simultanément.' },
+              { step: '01', title: 'Extrusion thermique', desc: 'Mélange farine de lentilles + tapioca extrudé à chaud via vis bi-vis. Forme et texture obtenues en une seule étape.' },
               { step: '02', title: 'Découpe & formage', desc: 'Les chips sont découpées à la sortie de l\'extrudeuse à la forme et l\'épaisseur cibles.' },
-              { step: '03', title: 'Séchage air pulsé', desc: 'Tunnel de séchage continu — élimine l\'humidité résiduelle sans friture. Texture croustillante garantie.' },
-              { step: '04', title: 'Enrobage arômes', desc: 'Tambour d\'enrobage : application de l\'huile + levure nutritionnelle + épices. Uniformité parfaite.' },
+              { step: '03', title: 'Séchage air pulsé', desc: 'Tunnel de séchage continu, élimine l\'humidité résiduelle sans friture. Texture croustillante.' },
+              { step: '04', title: 'Enrobage arômes', desc: 'Tambour d\'enrobage : application de l\'huile + levure nutritionnelle + épices sur toute la surface.' },
             ].map(s => (
               <div key={s.step} className="bg-white/5 border border-white/8 rounded-2xl p-5">
                 <div className="text-3xl font-black text-white/10 mb-2">{s.step}</div>

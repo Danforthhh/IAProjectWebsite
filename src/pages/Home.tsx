@@ -41,8 +41,8 @@ export default function Home() {
                 <span className="block text-[clamp(4rem,11vw,9rem)] text-white">to make.</span>
               </h1>
               <p className="text-base md:text-xl text-stone-300 max-w-lg leading-relaxed font-light mb-8">
-                Smash'd est la première chip 100% végétale qui reproduit exactement la saveur crème sure & oignon —
-                sans produits laitiers, sans friture. Faite à partir de lentilles.
+                Smash'd est la première chip 100% végétale qui reproduit exactement la saveur crème sure & oignon,
+                sans produits laitiers ni friture. À base de lentilles.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link
@@ -107,16 +107,16 @@ export default function Home() {
                 Du goût. Pas de compromis.
               </h2>
               <p className="text-stone-600 text-lg font-light leading-relaxed mb-6">
-                Là où Pringles et Ruffles imposent leurs dérivés laitiers, Smash'd ouvre la voie.
-                Une chip ultra-croustillante à base de farine de lentilles, séchée à l'air — jamais frite.
-                La levure nutritionnelle remplace la saveur umami des produits laitiers parfaitement.
+                Pringles et Ruffles imposent leurs dérivés laitiers. Smash'd ne le fait pas.
+                Chip ultra-croustillante à base de farine de lentilles, séchée à l'air sans friture.
+                La levure nutritionnelle reproduit l'umami du lait.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
                   { icon: '🌱', label: '100% végétal', desc: 'Aucun ingrédient d\'origine animale' },
                   { icon: '🔥', label: 'Sans friture', desc: 'Séchage par air pulsé continu' },
                   { icon: '💪', label: 'Base lentille', desc: 'Protéines + fibres naturelles' },
-                  { icon: '😋', label: 'Saveur identique', desc: 'Crème sure & oignon — pour de vrai' },
+                  { icon: '😋', label: 'Saveur identique', desc: 'Crème sure & oignon, pour de vrai' },
                 ].map(f => (
                   <div key={f.label} className="flex gap-3 p-3 rounded-xl bg-stone-50 border border-stone-100">
                     <span className="text-xl shrink-0">{f.icon}</span>
@@ -141,7 +141,7 @@ export default function Home() {
               {[
                 { ing: 'Farine de lentilles', pct: '55%', role: 'Base & texture croustillante', color: '#ea580c' },
                 { ing: 'Fécule de tapioca', pct: '15%', role: 'Liant, légèreté', color: '#f97316' },
-                { ing: 'Levure nutritionnelle', pct: '8%', role: 'Umami végétal — remplace le lait', color: '#fb923c' },
+                { ing: 'Levure nutritionnelle', pct: '8%', role: 'Umami végétal, sans lait', color: '#fb923c' },
                 { ing: 'Poudre d\'oignon', pct: '6%', role: 'Arôme signature', color: '#fdba74' },
                 { ing: 'Acide citrique', pct: '3%', role: 'Note crème sure', color: '#fed7aa' },
               ].map(item => (
@@ -168,8 +168,8 @@ export default function Home() {
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-orange-500 block mb-4">Notre Vision</span>
             <h2 className="text-5xl italic text-stone-900 mb-4" style={serif}>Rendre le végétal irrésistible</h2>
             <p className="text-stone-500 max-w-xl mx-auto text-lg font-light">
-              Le marché des chips végétales a progressé de +47% entre 2019 et 2023.
-              Aucun acteur majeur n'offre encore la saveur crème sure & oignon en version 100% végétale. C'est le gap que Smash'd comble.
+              Les chips végétales ont progressé de +47% entre 2019 et 2023.
+              Aucun acteur majeur ne propose cette saveur en version végétale. C'est ce que Smash'd change.
             </p>
           </div>
 
@@ -209,7 +209,7 @@ export default function Home() {
               <ul className="space-y-2 text-sm text-stone-600">
                 <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Flexitariens & consommateurs lactose-intolérants</li>
                 <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> 18–35 ans, attentifs à la composition des produits</li>
-                <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Amateurs de snacks indulgents — mais sans culpabilité</li>
+                <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Amateurs de snacks gourmands, sans produits d'origine animale</li>
                 <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Achat en épicerie fine, circuits bio, e-commerce</li>
               </ul>
             </div>
@@ -218,7 +218,7 @@ export default function Home() {
                 <span>📦</span> Packaging (estimé)
               </h3>
               <ul className="space-y-2 text-sm text-stone-600">
-                <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Sachet mono-portion 40g — format snacking nomade</li>
+                <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Sachet mono-portion 40g, format nomade</li>
                 <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Identité visuelle orange vif + vert végétal</li>
                 <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Claims: 100% Végétal · Sans friture · Source de protéines</li>
                 <li className="flex items-start gap-2"><span className="text-orange-400 mt-0.5">•</span> Clean label — liste d'ingrédients courte, lisible</li>
@@ -244,7 +244,7 @@ export default function Home() {
           {/* Known positioning */}
           <div className="grid md:grid-cols-3 gap-4 mb-10">
             {[
-              { icon: '⚡', title: 'Message central', desc: '"The chip they forgot to make" — adresse directement le gap laissé par Pringles & Ruffles sur le segment végétal.' },
+              { icon: '⚡', title: 'Message central', desc: '"The chip they forgot to make" : adresse le vide laissé par Pringles & Ruffles sur le segment végétal.' },
               { icon: '📱', title: 'Canaux estimés', desc: 'D2C e-commerce + épiceries fine & bio + TikTok/Instagram (contenu UGC, challenge saveur).' },
               { icon: '🤝', title: 'Partenaires potentiels', desc: 'Influenceurs vegan food, box d\'abonnement snack, distributeurs bio indépendants.' },
             ].map(c => (
