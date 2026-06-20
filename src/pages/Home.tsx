@@ -256,7 +256,7 @@ export default function Home() {
                   {[
                     { icon: '🌿', title: 'Certifié bio, sans gluten, sans OGM', desc: 'Certifications reconnues par la grande distribution et les épiceries fines — accès facilité aux rayons santé et bio.' },
                     { icon: '📋', title: 'Clean label garanti', desc: 'Liste d\'ingrédients courte et lisible, conforme aux attentes des acheteurs soucieux de transparence.' },
-                    { icon: '📈', title: 'Volume flexible', desc: 'Petites commandes en phase pilote, capacité industrielle disponible pour accompagner la croissance sans délai.' },
+                    { icon: '🔍', title: 'Traçabilité de bout en bout', desc: 'Chaque lot documenté de la matière première au produit fini. Fiches techniques et certificats d\'analyse disponibles sur demande.' },
                     { icon: '✅', title: 'Sécurité alimentaire certifiée', desc: 'HACCP en place, zéro contamination croisée avec allergènes non déclarés. Documentation lot disponible à chaque commande.' },
                   ].map(r => (
                     <div key={r.title} className="bg-white/5 border border-white/8 rounded-xl p-4">
