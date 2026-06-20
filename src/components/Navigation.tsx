@@ -1,23 +1,46 @@
+import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 
 const serif = { fontFamily: "'DM Serif Display', Georgia, serif" }
 
 export default function Navigation() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', handler, { passive: true })
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/92 backdrop-blur-md border-b border-stone-100">
-      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 bg-white/92 backdrop-blur-md border-b border-stone-100 transition-all duration-300"
+      style={{ paddingTop: scrolled ? '10px' : '18px', paddingBottom: scrolled ? '10px' : '18px' }}
+    >
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <div>
-            <span className="text-2xl font-black italic text-stone-900 block leading-tight" style={serif}>Smash'd</span>
+          <img
+            src={`${import.meta.env.BASE_URL}crunchlab-logo.png`}
+            alt="CrunchLab"
+            className="w-auto transition-all duration-300"
+            style={{ height: scrolled ? '28px' : '56px' }}
+          />
+          <div className="border-l border-stone-200 pl-3">
+            <span
+              className="font-black italic text-stone-900 block leading-tight transition-all duration-300"
+              style={{ ...serif, fontSize: scrolled ? '1.1rem' : '1.5rem' }}
+            >
+              Smash'd
+            </span>
+            {!scrolled && (
+              <span className="text-[10px] text-stone-400 font-medium uppercase tracking-[0.15em] leading-none block">
+                chips de lentilles
+              </span>
+            )}
           </div>
-          <div className="hidden sm:flex items-center gap-2 border-l border-stone-200 pl-3">
-            <img
-              src={`${import.meta.env.BASE_URL}crunchlab-logo.png`}
-              alt="CrunchLab"
-              className="h-7 w-auto"
-            />
-          </div>
-          <span className="text-xs bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full font-medium hidden md:inline">100% Végétal</span>
+          <span className="text-xs bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full font-medium hidden md:inline">
+            100% Végétal
+          </span>
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
