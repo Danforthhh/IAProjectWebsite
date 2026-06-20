@@ -24,7 +24,7 @@ export default function Home() {
           src={`${import.meta.env.BASE_URL}hero-lentils.jpg`}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover opacity-[0.15]"
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.28]"
         />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_20%_50%,rgba(212,64,8,0.22),transparent)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_30%,rgba(212,64,8,0.08),transparent)]" />
