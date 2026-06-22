@@ -274,7 +274,7 @@ export default function Annexe() {
             ))}
           </div>
 
-          <div className="bg-white/5 border border-white/8 rounded-2xl p-6 md:p-8">
+          <div className="bg-white/5 border border-white/8 rounded-2xl p-6 md:p-8 mb-10">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 mb-2">Concept publicitaire — TikTok / Reels 30s</p>
             <h4 className="text-xl italic font-semibold text-white mb-6" style={serif}>« Le son de la liberté (sans lactose) »</h4>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -288,6 +288,250 @@ export default function Annexe() {
                   <div className="text-xs font-mono text-brand-400 mb-1">{s.time}</div>
                   <div className="text-xs font-bold text-white mb-1.5">{s.label}</div>
                   <p className="text-xs text-stone-500 leading-relaxed">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Tâche 7.2 — Itération de la description produit ── */}
+          <div className="mb-10">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 mb-6">Tâche 7.2 — Processus de rédaction marketing (itération IA)</p>
+            <div className="space-y-4">
+              {/* Draft 1 */}
+              <div className="bg-white/4 border border-white/8 rounded-2xl p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[10px] font-bold uppercase tracking-wider bg-stone-700 text-stone-300 px-2 py-0.5 rounded-full">Draft 1 — brut IA</span>
+                </div>
+                <p className="text-sm text-stone-400 leading-relaxed italic">
+                  "Smash'd est une chip à base de lentilles, 100 % végétale, avec une saveur crème sure et oignon. Elle ne contient pas de produits laitiers et est fabriquée sans friture. C'est un snack sain pour les personnes qui veulent manger mieux tout en profitant d'une saveur classique. Disponible en sachets de 45 g."
+                </p>
+              </div>
+              {/* Critique */}
+              <div className="bg-red-900/15 border border-red-500/20 rounded-2xl p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[10px] font-bold uppercase tracking-wider bg-red-900/40 text-red-400 px-2 py-0.5 rounded-full">Auto-critique IA — faiblesses identifiées</span>
+                </div>
+                <ul className="space-y-2 text-xs text-stone-400">
+                  <li className="flex gap-2"><span className="text-red-400 shrink-0">✗</span>Ton trop fonctionnel — liste de caractéristiques, pas d'émotion ni de désir</li>
+                  <li className="flex gap-2"><span className="text-red-400 shrink-0">✗</span>"Manger mieux" active le registre santé austère — exactement ce que le positionnement rejette</li>
+                  <li className="flex gap-2"><span className="text-red-400 shrink-0">✗</span>Absence de tension narrative — pas de problème résolu, pas de frustration soulagée</li>
+                  <li className="flex gap-2"><span className="text-red-400 shrink-0">✗</span>Le mot "sain" est à bannir — il attire le mauvais segment (chercheurs de santé, pas de plaisir)</li>
+                  <li className="flex gap-2"><span className="text-red-400 shrink-0">✗</span>Pas de voix de marque distinctive — pourrait décrire n'importe quel snack végétal</li>
+                </ul>
+              </div>
+              {/* Draft final */}
+              <div className="bg-brand-500/8 border border-brand-500/30 rounded-2xl p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[10px] font-bold uppercase tracking-wider bg-brand-500 text-white px-2 py-0.5 rounded-full">Draft final — version retenue</span>
+                </div>
+                <p className="text-sm text-stone-200 leading-relaxed">
+                  "Pringles en met du lactosérum. Ruffles de la poudre de lait. Vous ? Vous méritez le vrai crunch — sans les laitiers qui vont avec.
+                  Smash'd, c'est la première chip crème sure & oignon 100 % végétale : base lentilles ultra-croustillante, séchée à l'air, aromatisée à la levure nutritionnelle et à l'oignon. Le résultat : exactement la saveur que vous connaissiez, sans le compromis que vous n'acceptez plus.
+                  Six grammes de protéines. Une liste d'ingrédients que vous comprenez. Un crunch que vous entendez de l'autre bout de la pièce."
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* ── Tâche 7.3c — Mood Board ── */}
+          <div className="mb-10">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 mb-2">Tâche 7.3c — Mood Board</p>
+            <p className="text-xs text-stone-500 mb-6">Références visuelles destinées au directeur artistique de la campagne</p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                {
+                  category: 'Palette & couleur',
+                  description: 'Fond coral chaud (#D85A30) contrastant avec blanc cassé crème. Accents charbon profond. Aucun vert — éviter le signal "santé austère". Référence : packaging Fly By Jing, Olipop.',
+                  icon: '🎨',
+                },
+                {
+                  category: 'Typographie',
+                  description: 'Serif italique expressif pour le hero (DM Serif Display, Canela). Sans-serif condensé bold pour claims. Effet "fissure" ou "explosion" sur le mot SMASH\'D — évoque le crunch physique.',
+                  icon: '🖋',
+                },
+                {
+                  category: 'Food photography ASMR',
+                  description: 'Gros plan macro sur texture lentille croustillante. Photo en lumière naturelle chaude, ombres douces. Chips en vol au-dessus du sachet ouvert — moment du crunch figé. Référence : compte @snackdad, Kettle Brand.',
+                  icon: '📸',
+                },
+                {
+                  category: 'Ambiance retail',
+                  description: "Rayon épicerie Erewhon / Whole Foods haut de gamme — lumière chaude, bois clair, clients Millennials décontractés. Signal aspirationnel sans ostentation. Le sachet coral ressort naturellement sur fond beige.",
+                  icon: '🛒',
+                },
+                {
+                  category: 'UGC & TikTok',
+                  description: "Cadrage vertical 9:16. Personne filmée de face, décontractée, première bouchée avec réaction authentique. Son CRUNCH amplifié. Texte superposé spontané. Référence : format \"taste test\" @HungryElephant.",
+                  icon: '📱',
+                },
+                {
+                  category: 'Lifestyle cible',
+                  description: 'Espace de travail moderne, sac gym posé au sol, table marché fermier. La chip apparaît naturellement dans des moments de pause — pas en plat santé, pas en fast-food. Référence : Soylent, Lesser Evil.',
+                  icon: '🌆',
+                },
+              ].map(m => (
+                <div key={m.category} className="bg-white/5 border border-white/8 rounded-2xl p-5">
+                  <div className="text-xl mb-2">{m.icon}</div>
+                  <div className="text-xs font-bold text-brand-400 uppercase tracking-wider mb-2">{m.category}</div>
+                  <p className="text-xs text-stone-400 leading-relaxed">{m.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Tâche 7.4 — Jingle ── */}
+          <div className="bg-white/5 border border-white/8 rounded-2xl p-6 md:p-8">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 mb-2">Tâche 7.4 — Jingle publicitaire</p>
+            <p className="text-xs text-stone-500 mb-6">Paroles générées pour accompagner la campagne TikTok/Reels · Production audio recommandée : Suno / Udio</p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-3">Paroles — version française</p>
+                <div className="space-y-3 text-sm">
+                  <div className="border-l-2 border-brand-500/40 pl-4">
+                    <p className="text-stone-500 text-[10px] uppercase tracking-wider mb-1">Couplet</p>
+                    <p className="text-stone-300 italic leading-relaxed">
+                      "Crème sure et oignon — la saveur que t'adores,<br/>
+                      Mais t'es pas pour les laitiers, on sait que t'en as marre.<br/>
+                      Lentilles corail, levure et oignon doux,<br/>
+                      Le crunch que t'attendais — il arrive chez vous."
+                    </p>
+                  </div>
+                  <div className="border-l-2 border-brand-500 pl-4">
+                    <p className="text-stone-500 text-[10px] uppercase tracking-wider mb-1">Refrain</p>
+                    <p className="text-white font-semibold italic leading-relaxed">
+                      "Smash'd — le crunch sans compromis,<br/>
+                      100 % végétal, goût amplifié.<br/>
+                      Smash'd — t'as pas à choisir,<br/>
+                      Entre ce que tu aimes et ce en quoi tu crois."
+                    </p>
+                  </div>
+                  <div className="border-l-2 border-white/10 pl-4">
+                    <p className="text-stone-500 text-[10px] uppercase tracking-wider mb-1">Outro</p>
+                    <p className="text-stone-500 italic leading-relaxed">
+                      "Six grammes de protéines, liste propre, crunch net —<br/>
+                      Smash'd. Sans compromis. Et c'est pas fini."
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-3">Notes de production</p>
+                <ul className="space-y-3 text-xs text-stone-400">
+                  <li className="flex gap-2"><span className="text-brand-400 shrink-0">♪</span>Tempo : 95–105 BPM · Genre : indie pop / électro-acoustique chaud</li>
+                  <li className="flex gap-2"><span className="text-brand-400 shrink-0">♪</span>Instrument signature : crunch réel de chip intégré comme percussion (beat 1 et 3)</li>
+                  <li className="flex gap-2"><span className="text-brand-400 shrink-0">♪</span>Voix : femme 25–30 ans, ton décontracté et direct — pas de voix "pub classique"</li>
+                  <li className="flex gap-2"><span className="text-brand-400 shrink-0">♪</span>Version courte 6s pour bumper TikTok : refrain seul + crunch + logo</li>
+                  <li className="flex gap-2"><span className="text-brand-400 shrink-0">♪</span>Production audio recommandée : Suno.ai ou Udio pour prototype sonore</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Tâche 7.5 — Stratégie Marketing Consolidée ────────── */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-10">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-3">Tâche 7.5 — Document stratégique</span>
+            <h2 className="text-3xl italic text-stone-900" style={serif}>Stratégie Marketing — Smash'd</h2>
+            <p className="text-stone-400 text-sm mt-2">Document synthèse destiné aux investisseurs et partenaires de distribution</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {/* Segment & Positionnement */}
+            <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
+              <h3 className="font-bold text-stone-900 mb-4 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-brand-500 text-white text-xs flex items-center justify-center font-bold">1</span>
+                Segment cible & positionnement
+              </h3>
+              <ul className="space-y-2 text-sm text-stone-600">
+                <li><strong>Segment primaire :</strong> Flexitariens et intolérants au lactose, 25–40 ans, urbains, revenu médian+</li>
+                <li><strong>Proposition de valeur :</strong> Seule chip crème sure & oignon sans produits laitiers — goût identique aux leaders, valeurs végétales sans austérité</li>
+                <li><strong>Positionnement prix :</strong> 6,00 $ / 45 g — premium justifié (vs ~3,50 $ chips standard). Achat plaisir, pas substitut low-cost</li>
+                <li><strong>Contre-positionnement :</strong> Anti-snack-santé austère. L'ennemi est Pringles, pas Whole Foods 365</li>
+              </ul>
+            </div>
+
+            {/* Marché & opportunité */}
+            <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
+              <h3 className="font-bold text-stone-900 mb-4 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-brand-500 text-white text-xs flex items-center justify-center font-bold">2</span>
+                Marché & opportunité
+              </h3>
+              <ul className="space-y-2 text-sm text-stone-600">
+                <li><strong>+47 %</strong> de croissance segment chips végétales (2019–2023)</li>
+                <li><strong>0 concurrent direct</strong> sur la saveur crème sure & oignon en version 100 % végétale</li>
+                <li><strong>40 %</strong> des consommateurs EU se déclarent flexitariens ou végétariens (Euromonitor)</li>
+                <li><strong>90 %</strong> de la demande végétale achetée par des omnivores et flexitariens — pas des vegans stricts (ProVeg)</li>
+              </ul>
+            </div>
+
+            {/* Lancement & distribution */}
+            <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
+              <h3 className="font-bold text-stone-900 mb-4 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-brand-500 text-white text-xs flex items-center justify-center font-bold">3</span>
+                Lancement & distribution — Phase 1
+              </h3>
+              <ul className="space-y-2 text-sm text-stone-600">
+                <li><strong>Ville pilote :</strong> Los Angeles (densité flexitariens, culture Erewhon, communauté TikTok food)</li>
+                <li><strong>Canal 1 :</strong> Retail premium — Erewhon, Whole Foods Silver Lake & Santa Monica</li>
+                <li><strong>Canal 2 :</strong> D2C + Gopuff + Thrive Market</li>
+                <li><strong>Canal 3 :</strong> TikTok / Instagram Reels — micro-influenceurs foodies (10k–150k abonnés)</li>
+                <li><strong>Canal 4 :</strong> Sampling événementiel — marchés fermiers Melrose & Santa Monica, studios fitness</li>
+                <li><strong>Phase 2 (M+6) :</strong> Expansion côte Est + Canada (Montréal, Toronto). Format partage 150 g</li>
+              </ul>
+            </div>
+
+            {/* Budget & métriques */}
+            <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
+              <h3 className="font-bold text-stone-900 mb-4 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-brand-500 text-white text-xs flex items-center justify-center font-bold">4</span>
+                Budget estimatif & métriques de succès
+              </h3>
+              <div className="space-y-3 text-sm text-stone-600">
+                <div>
+                  <p className="font-semibold text-stone-800 mb-1">Allocation budget lancement (Phase 1, 6 mois)</p>
+                  <ul className="space-y-1 text-xs">
+                    <li className="flex justify-between"><span>Référencement retail (slotting fees)</span><span className="font-mono">40 %</span></li>
+                    <li className="flex justify-between"><span>Influenceurs & contenu social</span><span className="font-mono">30 %</span></li>
+                    <li className="flex justify-between"><span>Sampling événementiel</span><span className="font-mono">20 %</span></li>
+                    <li className="flex justify-between"><span>Publicité payante (TikTok Ads)</span><span className="font-mono">10 %</span></li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold text-stone-800 mb-1">KPIs — M+3</p>
+                  <ul className="space-y-1 text-xs">
+                    <li>Taux de réachat cible : ≥ 35 % (validation goût)</li>
+                    <li>NPS cible : ≥ 50 (benchmark snacking premium)</li>
+                    <li>Présence retail : ≥ 12 points de vente actifs à LA</li>
+                    <li>UGC organique : ≥ 200 posts tagués #Smashdchips</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Timeline */}
+          <div className="bg-stone-950 rounded-2xl p-6 md:p-8 text-white">
+            <h3 className="font-bold mb-6 text-sm uppercase tracking-wider text-brand-400">Timeline de lancement</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { phase: 'M0–M2', title: 'Pré-lancement', items: ['Finalisation formule avec Frankie\'s Organic', 'Homologation emballage MAP', 'Référencement Erewhon & Whole Foods', 'Production lot pilote 500 kg'] },
+                { phase: 'M3', title: 'Lancement LA', items: ['Mise en rayon J-Day', 'Activation influenceurs (10 créateurs)', 'Sampling Santa Monica Farmers Market', 'Campagne TikTok Ads 2 semaines'] },
+                { phase: 'M4–M5', title: 'Amplification', items: ['Analyse taux réachat & NPS', 'Ajustements recette si nécessaire', 'Ajout canaux D2C & Gopuff', 'Contenu UGC — 2e vague influenceurs'] },
+                { phase: 'M6+', title: 'Expansion', items: ['Côte Est (NYC, Boston)', 'Canada : MTL & Toronto', 'Format partage 150 g', 'Négociation distribution nationale'] },
+              ].map(t => (
+                <div key={t.phase} className="bg-white/5 border border-white/8 rounded-xl p-4">
+                  <div className="text-xs font-mono text-brand-400 mb-1">{t.phase}</div>
+                  <div className="text-sm font-bold text-white mb-3">{t.title}</div>
+                  <ul className="space-y-1.5">
+                    {t.items.map(item => (
+                      <li key={item} className="text-xs text-stone-500 flex gap-1.5">
+                        <span className="text-brand-500 shrink-0 mt-0.5">·</span>{item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
