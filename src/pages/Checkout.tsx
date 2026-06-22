@@ -72,8 +72,7 @@ export default function Checkout() {
       const tDetails = setTimeout(() => setShowDetails(true), 3700)
       const t1 = setTimeout(() => setTrackStep(1), 4200)
       const t2 = setTimeout(() => setTrackStep(2), 5100)
-      const t3 = setTimeout(() => setTrackStep(3), 6200)
-      return () => { clearTimeout(tDetails); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
+      return () => { clearTimeout(tDetails); clearTimeout(t1); clearTimeout(t2) }
     }
   }, [step])
 

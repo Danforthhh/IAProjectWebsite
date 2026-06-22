@@ -157,7 +157,7 @@ export default function Product() {
               { step: '04', title: 'Enrobage arômes', desc: 'Tambour d\'enrobage : application de l\'huile + levure nutritionnelle + épices sur toute la surface.' },
             ].map(s => (
               <div key={s.step} className="bg-white/5 border border-white/8 rounded-2xl p-5">
-                <div className="text-3xl font-black text-white/10 mb-2">{s.step}</div>
+                <div className="text-3xl font-black text-white/40 mb-2">{s.step}</div>
                 <h4 className="font-bold mb-2">{s.title}</h4>
                 <p className="text-sm text-stone-400 leading-relaxed">{s.desc}</p>
               </div>

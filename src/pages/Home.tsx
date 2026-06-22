@@ -80,8 +80,8 @@ export default function Home() {
           <div className="mt-12 pt-8 border-t border-white/8 grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { val: '100%', label: 'Végétal' },
-              { val: '4.7', label: 'Score viabilité' },
-              { val: '+47%', label: 'Croissance segment' },
+              { val: '6g', label: 'Protéines / portion' },
+              { val: '12 mois', label: 'Conservation' },
               { val: '0', label: 'Produit laitier' },
             ].map(s => (
               <div key={s.label}>
@@ -173,9 +173,9 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
-              { stat: '+47%', label: 'Croissance chips végétales', period: '2019–2023' },
               { stat: '0', label: 'Concurrent végétal direct', period: 'Saveur crème sure & oignon' },
-              { stat: '5.0', label: 'Score différenciation', period: 'Note maximale' },
+              { stat: '6g', label: 'Protéines par portion', period: 'Base lentilles corail' },
+              { stat: '100%', label: 'Végétal & sans lactose', period: 'Aucun produit laitier' },
             ].map(s => (
               <div key={s.label} className="bg-white rounded-2xl p-6 text-center border border-brand-100">
                 <div className="text-4xl font-black text-brand-500 mb-1">{s.stat}</div>
