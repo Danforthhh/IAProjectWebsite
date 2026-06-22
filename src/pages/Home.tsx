@@ -29,14 +29,14 @@ export default function Home() {
             {/* Left */}
             <div className="flex-1 mb-12 lg:mb-0">
               <h1 className="leading-[0.9] tracking-tight mb-6" style={serif}>
-                <span className="block text-[clamp(4rem,11vw,9rem)] text-white">La chip</span>
+                <span className="block text-[clamp(4rem,11vw,9rem)] text-white">Le crunch</span>
                 <span
                   className="block text-[clamp(4rem,11vw,9rem)] italic"
                   style={{ color: '#eb5215' }}
                 >
-                  qu'ils avaient
+                  sans
                 </span>
-                <span className="block text-[clamp(4rem,11vw,9rem)] text-white">oublié de faire.</span>
+                <span className="block text-[clamp(4rem,11vw,9rem)] text-white">compromis.</span>
               </h1>
               <p className="text-base md:text-xl text-stone-300 max-w-lg leading-relaxed font-light mb-8">
                 Smash'd est la première chip 100% végétale qui reproduit exactement la saveur crème sure & oignon,
@@ -263,17 +263,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Témoignages ──────────────────────────────────────── */}
+      <section className="py-24 bg-stone-950 text-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-4">Ils ont goûté</span>
+            <h2 className="text-4xl italic text-white" style={serif}>Ce qu'ils en pensent.</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { quote: "Crème sure & oignon sans lactose, c'est EXACTEMENT ce que je cherche depuis 10 ans. Je l'achète immédiatement.", name: 'Aïcha M.', role: 'Designer UX · Toronto', initials: 'AM', highlight: true },
+              { quote: "Enfin une chip végane qui ne ressemble pas à du carton bio. La couleur orange m'attire en rayon.", name: 'Claire L.', role: 'Gestionnaire de projet · MTL', initials: 'CL', highlight: false },
+              { quote: "Liste d'ingrédients courte, c'est le critère n°1. Lentilles, oignon, levure nutritionnelle — je comprends tout.", name: 'Mathieu T.', role: 'Développeur · Québec', initials: 'MT', highlight: false },
+              { quote: "Le fait qu'il y ait des lentilles me rassure — c'est un vrai aliment, pas une poudre transformée.", name: 'Valérie R.', role: 'Infirmière · Sherbrooke', initials: 'VR', highlight: false },
+              { quote: "6 g de protéines pour 45 g, c'est mieux que des chips classiques. Ça peut entrer dans ma journée.", name: 'Derek K.', role: 'Consultant crossfit · Vancouver', initials: 'DK', highlight: false },
+              { quote: "Le prix premium ne me dérange pas. Je paie pour la qualité et l'éthique.", name: 'Rachel B.', role: 'Avocate · Westmount', initials: 'RB', highlight: false },
+            ].map(t => (
+              <div
+                key={t.initials}
+                className={`rounded-2xl p-6 border ${t.highlight ? 'border-brand-500/50 bg-brand-500/8' : 'border-white/8 bg-white/4'}`}
+              >
+                <p className={`text-sm leading-relaxed mb-5 ${t.highlight ? 'text-white' : 'text-stone-300'}`}>
+                  « {t.quote} »
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${t.highlight ? 'bg-brand-500 text-white' : 'bg-white/10 text-stone-400'}`}>
+                    {t.initials}
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold text-white">{t.name}</div>
+                    <div className="text-[11px] text-stone-500">{t.role}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Pour qui ──────────────────────────────────────────── */}
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-4">Notre cible</span>
           <h2 className="text-5xl italic text-stone-900 mb-6" style={serif}>Fait pour les flexitariens.</h2>
-          <p className="text-stone-500 text-lg font-light max-w-xl mx-auto mb-6 leading-relaxed">
+          <p className="text-stone-500 text-lg font-light max-w-xl mx-auto mb-10 leading-relaxed">
             La seule chip crème sure & oignon sans produits laitiers.
             Conçue pour ceux qui veulent du plaisir gourmand — sans compromis sur les valeurs.
-          </p>
-          <p className="text-3xl italic font-black text-stone-900 mb-10" style={serif}>
-            « Le crunch sans compromis. »
           </p>
           <Link
             to="/checkout"
