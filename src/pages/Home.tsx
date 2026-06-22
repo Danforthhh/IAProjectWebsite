@@ -20,7 +20,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_20%_50%,rgba(212,64,8,0.22),transparent)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_30%,rgba(212,64,8,0.08),transparent)]" />
 
-        <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 md:px-12 pt-40 pb-12">
+        <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 md:px-12 pt-24 pb-8">
           <p className="text-xs font-medium tracking-[0.25em] uppercase text-brand-500 mb-8">
             100% Végétal · Chips de lentilles · Crème sure & oignon
           </p>
@@ -29,14 +29,14 @@ export default function Home() {
             {/* Left */}
             <div className="flex-1 mb-12 lg:mb-0">
               <h1 className="leading-[0.9] tracking-tight mb-6" style={serif}>
-                <span className="block text-[clamp(4rem,11vw,9rem)] text-white">Le crunch</span>
+                <span className="block text-[clamp(3.5rem,8vw,7rem)] text-white">Le crunch</span>
                 <span
-                  className="block text-[clamp(4rem,11vw,9rem)] italic"
+                  className="block text-[clamp(3.5rem,8vw,7rem)] italic"
                   style={{ color: '#eb5215' }}
                 >
                   sans
                 </span>
-                <span className="block text-[clamp(4rem,11vw,9rem)] text-white">compromis.</span>
+                <span className="block text-[clamp(3.5rem,8vw,7rem)] text-white">compromis.</span>
               </h1>
               <p className="text-base md:text-xl text-stone-300 max-w-lg leading-relaxed font-light mb-8">
                 Smash'd est la première chip 100% végétale qui reproduit exactement la saveur crème sure & oignon,
