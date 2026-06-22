@@ -22,21 +22,21 @@ export default function Home() {
 
         <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 md:px-12 pt-40 pb-12">
           <p className="text-xs font-medium tracking-[0.25em] uppercase text-brand-500 mb-8">
-            100% Plant-Based · Lentil Chips · Crème Sure & Oignon
+            100% Végétal · Chips de lentilles · Crème sure & oignon
           </p>
 
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16 flex-1">
             {/* Left */}
             <div className="flex-1 mb-12 lg:mb-0">
               <h1 className="leading-[0.9] tracking-tight mb-6" style={serif}>
-                <span className="block text-[clamp(4rem,11vw,9rem)] text-white">The chip</span>
+                <span className="block text-[clamp(4rem,11vw,9rem)] text-white">La chip</span>
                 <span
                   className="block text-[clamp(4rem,11vw,9rem)] italic"
                   style={{ color: '#eb5215' }}
                 >
-                  they forgot
+                  qu'ils avaient
                 </span>
-                <span className="block text-[clamp(4rem,11vw,9rem)] text-white">to make.</span>
+                <span className="block text-[clamp(4rem,11vw,9rem)] text-white">oublié de faire.</span>
               </h1>
               <p className="text-base md:text-xl text-stone-300 max-w-lg leading-relaxed font-light mb-8">
                 Smash'd est la première chip 100% végétale qui reproduit exactement la saveur crème sure & oignon,
@@ -308,7 +308,7 @@ export default function Home() {
                 <span>📦</span> Emballage
               </h3>
               <ul className="space-y-2 text-sm text-stone-600">
-                <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> Sachet single-serve 45 g — film multicouche MAP à l'azote, 12 mois de conservation</li>
+                <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> Sachet portion individuelle 45 g — film multicouche MAP à l'azote, 12 mois de conservation</li>
                 <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> Fond coral chaud (#D85A30) — signal plaisir, évite le vert «&nbsp;santé austère&nbsp;»</li>
                 <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> SMASH'D en héros visuel avec fissure typographique narrative (évoque le crunch)</li>
                 <li className="flex items-start gap-2"><span className="text-brand-400 mt-0.5">•</span> Claims : 100% Végétal · Sans produits laitiers · 6 g protéines / 4 g fibres</li>
@@ -398,7 +398,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
             {[
               { icon: '🛒', title: 'Retail premium', desc: 'Épiceries indépendantes haut de gamme — Erewhon, Whole Foods Silver Lake / Santa Monica. Profils à fort pouvoir d\'achat.' },
-              { icon: '📦', title: 'E-commerce & quick-commerce', desc: 'D2C + Gopuff (livraison rapide) + Thrive Market (écoresponsable). Millennials connectés et pressés.' },
+              { icon: '📦', title: 'Vente en ligne & livraison rapide', desc: 'D2C + Gopuff (livraison rapide) + Thrive Market (écoresponsable). Millennials connectés et pressés.' },
               { icon: '📱', title: 'TikTok & Instagram Reels', desc: 'Micro-influenceurs foodies de LA. Tests de goût ASMR crunch. UGC authentique autour du design photogénique.' },
               { icon: '🎪', title: 'Sampling événementiel', desc: 'Marchés fermiers premium (Melrose, Santa Monica). Studios de fitness branchés. Faire goûter = lever le frein du prix.' },
             ].map(c => (
