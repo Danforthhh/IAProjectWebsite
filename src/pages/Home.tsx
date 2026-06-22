@@ -203,7 +203,7 @@ export default function Home() {
               <div>
                 <h4 className="text-sm font-semibold text-white mb-3">Modèle de fabrication</h4>
                 <p className="text-sm text-stone-400 leading-relaxed">
-                  CrunchLab travaille avec des co-manufacturers sélectionnés pour leurs certifications bio et leurs standards qualité. Volume flexible selon les besoins du distributeur — format pilote ou montée en cadence, sans délai d'intégration.
+                  CrunchLab travaille avec des partenaires sélectionnés pour leurs certifications bio et leurs standards qualité. Chaque lot est traçable de la matière première au sachet — pour que vous sachiez exactement ce que vous mangez.
                 </p>
               </div>
             </div>
@@ -295,11 +295,13 @@ export default function Home() {
       {/* ── Pour qui ──────────────────────────────────────────── */}
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-4">Notre cible</span>
-          <h2 className="text-5xl italic text-stone-900 mb-6" style={serif}>Fait pour les flexitariens.</h2>
-          <p className="text-stone-500 text-lg font-light max-w-xl mx-auto mb-10 leading-relaxed">
-            La seule chip crème sure & oignon sans produits laitiers.
-            Conçue pour ceux qui veulent du plaisir gourmand — sans compromis sur les valeurs.
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-4">Pour tout le monde</span>
+          <h2 className="text-5xl italic text-stone-900 mb-6" style={serif}>Une chip pour tous — et surtout pour eux.</h2>
+          <p className="text-stone-500 text-lg font-light max-w-xl mx-auto mb-4 leading-relaxed">
+            Pensée pour les <strong className="text-stone-700">flexitariens et les intolérants au lactose</strong> — la seule chip crème sure & oignon sans produits laitiers.
+          </p>
+          <p className="text-stone-400 text-base font-light max-w-xl mx-auto mb-10 leading-relaxed">
+            Mais si vous aimez juste les bonnes chips, vous êtes les bienvenus aussi.
           </p>
           <Link
             to="/checkout"
