@@ -59,7 +59,7 @@ export default function Checkout() {
   const price = state?.price ?? qty * 6.00
 
   const [step, setStep] = useState<'shipping' | 'payment' | 'confirmation'>('shipping')
-  const [shipping, setShipping] = useState({ firstName: '', lastName: '', email: '', address: '', city: '', zip: '', country: 'France' })
+  const [shipping, setShipping] = useState({ firstName: '', lastName: '', email: '', address: '', city: '', zip: '', country: 'Canada' })
   const [payment, setPayment] = useState({ card: '', expiry: '', cvv: '', name: '' })
   const [trackStep, setTrackStep] = useState(0)
   const [showDetails, setShowDetails] = useState(false)

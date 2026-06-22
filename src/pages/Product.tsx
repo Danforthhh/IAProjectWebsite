@@ -119,7 +119,7 @@ export default function Product() {
 
             {/* Nutrition */}
             <div className="bg-white rounded-2xl p-6 border border-stone-100">
-              <h3 className="font-bold text-stone-900 mb-4">Valeurs nutritionnelles <span className="font-normal text-stone-400">pour 40g</span></h3>
+              <h3 className="font-bold text-stone-900 mb-4">Valeurs nutritionnelles <span className="font-normal text-stone-400">pour 45g</span></h3>
               <div className="space-y-2">
                 {[
                   { label: 'Énergie', val: '182 kcal', sub: true },
@@ -151,7 +151,7 @@ export default function Product() {
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { step: '01', title: 'Extrusion thermique', desc: 'Mélange farine de lentilles + tapioca extrudé à chaud via vis bi-vis. Forme et texture obtenues en une seule étape.' },
+              { step: '01', title: 'Mélange & formage', desc: 'Farine de lentilles + tapioca combinés à chaud — forme et texture croustillante obtenues en une seule étape.' },
               { step: '02', title: 'Découpe & formage', desc: 'Les chips sont découpées à la sortie de l\'extrudeuse à la forme et l\'épaisseur cibles.' },
               { step: '03', title: 'Séchage air pulsé', desc: 'Tunnel de séchage continu, élimine l\'humidité résiduelle sans friture. Texture croustillante.' },
               { step: '04', title: 'Enrobage arômes', desc: 'Tambour d\'enrobage : application de l\'huile + levure nutritionnelle + épices sur toute la surface.' },
