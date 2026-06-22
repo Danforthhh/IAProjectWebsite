@@ -21,7 +21,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_20%_50%,rgba(212,64,8,0.22),transparent)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_30%,rgba(212,64,8,0.08),transparent)]" />
 
-        <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 md:px-12 pt-24 pb-8">
+        <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 md:px-12 pt-32 pb-8">
           <p className="text-xs font-medium tracking-[0.25em] uppercase text-brand-500 mb-8">
             100% Végétal · Chips de lentilles · Crème sure & oignon
           </p>
