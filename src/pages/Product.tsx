@@ -5,6 +5,7 @@ import ProductVisual from '../components/ProductVisual'
 const serif = { fontFamily: "'DM Serif Display', Georgia, serif" }
 
 export default function Product() {
+  const UNIT_PRICE = 6.00
   const [qty, setQty] = useState(1)
 
   return (
@@ -21,7 +22,7 @@ export default function Product() {
                 <ProductVisual size="lg" />
               </div>
               <div className="flex gap-2 mt-4">
-                {['40g', 'Mono-portion', '100% Végétal'].map(tag => (
+                {['45g', 'Portion individuelle', '100% Végétal'].map(tag => (
                   <span key={tag} className="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full">{tag}</span>
                 ))}
               </div>
@@ -34,8 +35,8 @@ export default function Product() {
               <p className="text-xl text-stone-500 font-light mb-6">Saveur Crème Sure & Oignon</p>
 
               <div className="flex items-baseline gap-2 mb-6">
-                <span className="text-3xl font-black text-stone-900">$3.75</span>
-                <span className="text-sm text-stone-400">/ 40g</span>
+                <span className="text-3xl font-black text-stone-900">6,00 $</span>
+                <span className="text-sm text-stone-400">/ 45g</span>
                 <span className="ml-2 text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">En stock</span>
               </div>
 
@@ -59,17 +60,17 @@ export default function Product() {
                       className="w-9 h-9 flex items-center justify-center text-stone-500 hover:bg-stone-100 transition-colors"
                     >+</button>
                   </div>
-                  <span className="text-sm text-stone-400">${(qty * 3.75).toFixed(2)}</span>
+                  <span className="text-sm text-stone-400">${(qty * UNIT_PRICE).toFixed(2)}</span>
                 </div>
                 <Link
                   to="/checkout"
-                  state={{ qty, price: qty * 3.75 }}
+                  state={{ qty, price: qty * UNIT_PRICE }}
                   className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold text-white transition-colors"
                   style={{ backgroundColor: '#d44008' }}
                   onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
                   onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
                 >
-                  Commander · ${(qty * 3.75).toFixed(2)}
+                  Commander · ${(qty * UNIT_PRICE).toFixed(2)}
                 </Link>
               </div>
 
@@ -77,9 +78,9 @@ export default function Product() {
               <div className="grid grid-cols-2 gap-3">
                 {[
                   { icon: '🌱', label: '100% Végétal', desc: 'Aucun ingrédient animal' },
-                  { icon: '🔥', label: 'Sans friture', desc: 'Air-dried process' },
+                  { icon: '🔥', label: 'Sans friture', desc: 'Séchage à l\'air pulsé' },
                   { icon: '💪', label: 'Lentilles', desc: 'Source de protéines' },
-                  { icon: '⏱', label: '9 mois', desc: 'Durée de conservation' },
+                  { icon: '⏱', label: '12 mois', desc: 'Durée de conservation' },
                 ].map(c => (
                   <div key={c.label} className="flex items-center gap-2 p-3 rounded-xl border border-stone-100 bg-white">
                     <span className="text-lg">{c.icon}</span>

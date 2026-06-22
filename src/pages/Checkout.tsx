@@ -56,7 +56,7 @@ export default function Checkout() {
   const location = useLocation()
   const state = location.state as LocationState
   const qty = state?.qty ?? 1
-  const price = state?.price ?? qty * 3.75
+  const price = state?.price ?? qty * 6.00
 
   const [step, setStep] = useState<'shipping' | 'payment' | 'confirmation'>('shipping')
   const [shipping, setShipping] = useState({ firstName: '', lastName: '', email: '', address: '', city: '', zip: '', country: 'France' })
@@ -406,7 +406,7 @@ export default function Checkout() {
                 <div className="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center text-white text-lg font-black shrink-0" style={serif}>S</div>
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-semibold text-stone-900">Smash'd Original</div>
-                  <div className="text-xs text-stone-400">Crème Sure & Oignon, 40g</div>
+                  <div className="text-xs text-stone-400">Crème Sure & Oignon, 45g</div>
                 </div>
                 <div className="text-sm font-bold">×{qty}</div>
               </div>
