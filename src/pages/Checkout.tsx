@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-const serif = { fontFamily: "'DM Serif Display', Georgia, serif" }
-
 type LocationState = { qty?: number; price?: number } | null
 
 const DEMO_SHIPPING = {
@@ -25,17 +23,12 @@ function TruckScene() {
         className="absolute bottom-8"
         style={{ left: '50%', animation: 'bagLoad 3.4s ease-in-out forwards' }}
       >
-        <div
-          className="w-9 h-11 rounded flex flex-col items-center justify-center gap-0.5 shadow-lg"
-          style={{ background: 'linear-gradient(160deg,#eb5215,#c2410c)' }}
-        >
-          <span className="text-[9px] font-black italic text-white leading-none" style={serif}>Smash'd</span>
-          <div className="flex gap-0.5">
-            {[0,1,2].map(i => (
-              <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/30" />
-            ))}
-          </div>
-        </div>
+        <img
+          src={`${import.meta.env.BASE_URL}smashd-packaging.png`}
+          alt="Smash'd"
+          className="rounded drop-shadow-[0_2px_12px_rgba(212,64,8,0.55)]"
+          style={{ height: 44, width: 'auto', objectFit: 'contain' }}
+        />
       </div>
       <div
         className="absolute bottom-0 select-none text-6xl leading-none"
@@ -185,7 +178,7 @@ export default function Checkout() {
               ✓
             </div>
 
-            <h1 className="text-4xl md:text-5xl italic text-white mb-2" style={serif}>C'est parti !</h1>
+            <h1 className="text-4xl md:text-5xl italic text-white mb-2 font-display">C'est parti !</h1>
             <p className="text-stone-400 mb-1">
               Merci {shipping.firstName}, votre commande de {qty} × Smash'd est confirmée.
             </p>
@@ -228,10 +221,7 @@ export default function Checkout() {
 
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full text-white transition-colors"
-              style={{ backgroundColor: '#d44008' }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
+              className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full text-white bg-brand-500 hover:bg-brand-400 transition-colors"
             >
               Retour à l'accueil
             </Link>
@@ -299,7 +289,7 @@ export default function Checkout() {
 
             {step === 'shipping' && (
               <form onSubmit={handleShippingSubmit}>
-                <h2 className="text-2xl italic text-stone-900 mb-6" style={serif}>Adresse de livraison</h2>
+                <h2 className="text-2xl italic text-stone-900 mb-6 font-display">Adresse de livraison</h2>
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   {[
                     { id: 'firstName', label: 'Prénom', placeholder: 'Jean' },
@@ -368,7 +358,7 @@ export default function Checkout() {
 
             {step === 'payment' && (
               <form onSubmit={handlePaymentSubmit}>
-                <h2 className="text-2xl italic text-stone-900 mb-6" style={serif}>Informations de paiement</h2>
+                <h2 className="text-2xl italic text-stone-900 mb-6 font-display">Informations de paiement</h2>
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-stone-700 mb-1">Nom sur la carte</label>
                   <input
@@ -429,7 +419,11 @@ export default function Checkout() {
             <div className="bg-white rounded-2xl border border-stone-100 p-6">
               <h3 className="font-bold text-stone-900 mb-4">Récapitulatif</h3>
               <div className="flex items-center gap-3 mb-4 p-3 bg-brand-50 rounded-xl">
-                <div className="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center text-white text-lg font-black shrink-0" style={serif}>S</div>
+                <img
+                  src={`${import.meta.env.BASE_URL}smashd-packaging.png`}
+                  alt="Smash'd"
+                  className="w-10 h-10 rounded-lg shrink-0 object-contain bg-brand-50"
+                />
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-semibold text-stone-900">Smash'd Original</div>
                   <div className="text-xs text-stone-400">Crème Sure & Oignon, 45g</div>

@@ -3,8 +3,6 @@ import Products from '../components/Products'
 import Analysis from '../components/Analysis'
 import Reflection from '../components/Reflection'
 
-const serif = { fontFamily: "'DM Serif Display', Georgia, serif" }
-
 const manufacturers = [
   {
     name: "Frankie's Organic",
@@ -61,7 +59,7 @@ export default function Annexe() {
       {/* Header */}
       <div className="bg-stone-950 text-white pt-24 pb-12 text-center">
         <span className="text-xs font-medium uppercase tracking-[0.2em] text-stone-400 block mb-4">Annexe MBA</span>
-        <h1 className="text-4xl md:text-5xl italic mb-4" style={serif}>Exercice GenAI — Analyse comparative</h1>
+        <h1 className="text-4xl md:text-5xl italic mb-4 font-display">Exercice GenAI — Analyse comparative</h1>
         <p className="text-stone-400 max-w-xl mx-auto font-light">
           Les 5 concepts de snacks développés dans le cadre de l'exercice MBA "Building an AI First Snack Company",
           leurs scores de viabilité et la réflexion critique sur les outils GenAI utilisés.
@@ -78,7 +76,7 @@ export default function Annexe() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-10">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-3">Tâche 5 — Fabrication</span>
-            <h2 className="text-3xl italic text-stone-900" style={serif}>Comparaison des fournisseurs</h2>
+            <h2 className="text-3xl italic text-stone-900 font-display">Comparaison des fournisseurs</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-4">
@@ -119,7 +117,7 @@ export default function Annexe() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-10">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-3">Identité visuelle</span>
-            <h2 className="text-3xl italic text-stone-900" style={serif}>Évolution du logo CrunchLab</h2>
+            <h2 className="text-3xl italic text-stone-900 font-display">Évolution du logo CrunchLab</h2>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {logos.map(l => (
@@ -142,7 +140,7 @@ export default function Annexe() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-4">Tâche 6 — Cible & Emballage</span>
-            <h2 className="text-4xl italic text-stone-900 mb-4" style={serif}>Pour qui, dans quel emballage</h2>
+            <h2 className="text-4xl italic text-stone-900 mb-4 font-display">Pour qui, dans quel emballage</h2>
             <p className="text-stone-500 max-w-xl mx-auto font-light">
               Segment retenu : les <strong>flexitariens</strong> — réduisent viande et produits laitiers sans s'identifier comme végans stricts.
             </p>
@@ -236,7 +234,7 @@ export default function Annexe() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-4">Tâche 7 — Lancement & Campagne</span>
-            <h2 className="text-4xl italic mb-4" style={serif}>Lancer la marque</h2>
+            <h2 className="text-4xl italic mb-4 font-display">Lancer la marque</h2>
             <p className="text-stone-400 max-w-xl mx-auto font-light">
               Phase pilote à Los Angeles — la ville la plus alignée avec le positionnement premium flexitarien de Smash'd.
             </p>
@@ -245,7 +243,7 @@ export default function Annexe() {
           <div className="grid md:grid-cols-2 gap-6 mb-10">
             <div className="bg-brand-500/10 border border-brand-500/30 rounded-2xl p-6">
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 mb-3">Slogan</p>
-              <p className="text-3xl italic font-black text-white leading-tight" style={serif}>« Le crunch sans compromis. »</p>
+              <p className="text-3xl italic font-black text-white leading-tight font-display">« Le crunch sans compromis. »</p>
               <p className="text-sm text-stone-400 mt-3 leading-relaxed">Pas de compromis sur le goût, pas de compromis sur les valeurs végétales. Inverse du discours « santé d'abord » des concurrents traditionnels.</p>
             </div>
             <div className="bg-white/5 border border-white/8 rounded-2xl p-6">
@@ -276,7 +274,7 @@ export default function Annexe() {
 
           <div className="bg-white/5 border border-white/8 rounded-2xl p-6 md:p-8 mb-10">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 mb-2">Concept publicitaire — TikTok / Reels 30s</p>
-            <h4 className="text-xl italic font-semibold text-white mb-6" style={serif}>« Le son de la liberté (sans lactose) »</h4>
+            <h4 className="text-xl italic font-semibold text-white mb-6 font-display">« Le son de la liberté (sans lactose) »</h4>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {[
                 { time: '0–3s', label: "L'accroche", desc: 'Sachet coral ouvert, bruissement MAP. Texte : "Attendez... Crème sure & oignon ?! 😭"' },
@@ -434,7 +432,7 @@ export default function Annexe() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-10">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-3">Tâche 7.5 — Document stratégique</span>
-            <h2 className="text-3xl italic text-stone-900" style={serif}>Stratégie Marketing — Smash'd</h2>
+            <h2 className="text-3xl italic text-stone-900 font-display">Stratégie Marketing — Smash'd</h2>
             <p className="text-stone-400 text-sm mt-2">Document synthèse destiné aux investisseurs et partenaires de distribution</p>
           </div>
 

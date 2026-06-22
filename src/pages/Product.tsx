@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ProductVisual from '../components/ProductVisual'
 
-const serif = { fontFamily: "'DM Serif Display', Georgia, serif" }
-
 export default function Product() {
   const UNIT_PRICE = 6.00
   const [qty, setQty] = useState(1)
@@ -12,7 +10,7 @@ export default function Product() {
     <div className="bg-[#FAFAF7]">
 
       {/* ── Product Hero ─────────────────────────────────────── */}
-      <section className="pt-24 pb-0 bg-white">
+      <section className="pt-32 pb-0 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
 
@@ -31,7 +29,7 @@ export default function Product() {
             {/* Details */}
             <div className="py-4">
               <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-3">Chips de lentilles</span>
-              <h1 className="text-5xl md:text-6xl italic text-stone-900 mb-2" style={serif}>
+              <h1 className="text-5xl md:text-6xl italic text-stone-900 mb-2 font-display">
                 <span className="crack-text">Smash'd</span>
               </h1>
               <p className="text-xl text-stone-500 font-light mb-6">Saveur Crème Sure & Oignon</p>
@@ -67,10 +65,7 @@ export default function Product() {
                 <Link
                   to="/checkout"
                   state={{ qty, price: qty * UNIT_PRICE }}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold text-white transition-colors"
-                  style={{ backgroundColor: '#d44008' }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold text-white bg-brand-500 hover:bg-brand-400 transition-colors"
                 >
                   Commander · ${(qty * UNIT_PRICE).toFixed(2)}
                 </Link>
@@ -103,7 +98,7 @@ export default function Product() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-4">Transparence totale</span>
-            <h2 className="text-4xl italic text-stone-900" style={serif}>Ce qu'il y a dedans</h2>
+            <h2 className="text-4xl italic text-stone-900 font-display">Ce qu'il y a dedans</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
 
@@ -149,7 +144,7 @@ export default function Product() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-4">Processus de fabrication</span>
-            <h2 className="text-4xl italic" style={serif}>Comment on fabrique Smash'd</h2>
+            <h2 className="text-4xl italic font-display">Comment on fabrique Smash'd</h2>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[

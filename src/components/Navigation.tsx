@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 
-const serif = { fontFamily: "'DM Serif Display', Georgia, serif" }
-
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
 
@@ -27,8 +25,8 @@ export default function Navigation() {
           />
           <div className="border-l border-white/15 pl-3">
             <span
-              className="font-black italic text-white block leading-tight transition-all duration-300"
-              style={{ ...serif, fontSize: scrolled ? '1.2rem' : '1.6rem' }}
+              className="font-display font-black italic text-white block leading-tight transition-all duration-300"
+              style={{ fontSize: scrolled ? '1.2rem' : '1.6rem' }}
             >
               Smash'd
             </span>
@@ -73,10 +71,7 @@ export default function Navigation() {
           </NavLink>
           <Link
             to="/checkout"
-            className="text-sm font-semibold px-4 py-2 rounded-full text-white transition-colors"
-            style={{ backgroundColor: '#d44008' }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
+            className="text-sm font-semibold px-4 py-2 rounded-full text-white bg-brand-500 hover:bg-brand-400 transition-colors"
           >
             Commander
           </Link>

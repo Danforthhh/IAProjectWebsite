@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom'
 import ProductVisual from '../components/ProductVisual'
 
-const serif = { fontFamily: "'DM Serif Display', Georgia, serif" }
-
-
 export default function Home() {
   return (
     <div className="bg-[#FAFAF7]">
@@ -18,8 +15,9 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover opacity-[0.42]"
           style={{ objectPosition: 'center 30%' }}
         />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_20%_50%,rgba(212,64,8,0.22),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_30%,rgba(212,64,8,0.08),transparent)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/70 via-stone-950/40 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_20%_50%,rgba(212,64,8,0.18),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_30%,rgba(212,64,8,0.06),transparent)]" />
 
         <div className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 md:px-12 pt-32 pb-8">
           <p className="text-xs font-medium tracking-[0.25em] uppercase text-brand-500 mb-8">
@@ -29,7 +27,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16 flex-1">
             {/* Left */}
             <div className="flex-1 mb-12 lg:mb-0">
-              <h1 className="leading-[0.9] tracking-tight mb-6" style={serif}>
+              <h1 className="leading-[0.9] tracking-tight mb-6 font-display">
                 <span className="block text-[clamp(3.5rem,8vw,7rem)] text-white">Le crunch</span>
                 <span
                   className="block text-[clamp(3.5rem,8vw,7rem)] italic"
@@ -39,17 +37,14 @@ export default function Home() {
                 </span>
                 <span className="block text-[clamp(3.5rem,8vw,7rem)] text-white">compromis.</span>
               </h1>
-              <p className="text-base md:text-xl text-stone-300 max-w-lg leading-relaxed font-light mb-8">
+              <p className="text-base md:text-xl text-white/90 max-w-lg leading-relaxed mb-8">
                 Smash'd est la première chip 100% végétale qui reproduit exactement la saveur crème sure & oignon,
                 sans produits laitiers ni friture. À base de lentilles.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link
                   to="/product"
-                  className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-full transition-all"
-                  style={{ backgroundColor: '#d44008', color: 'white' }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
+                  className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-full bg-brand-500 hover:bg-brand-400 transition-colors text-white"
                 >
                   Découvrir le produit
                 </Link>
@@ -80,7 +75,7 @@ export default function Home() {
                 <div className="text-2xl font-black text-white" style={{ color: s.val === '0' ? '#d44008' : undefined }}>
                   {s.val}
                 </div>
-                <div className="text-xs text-stone-500 uppercase tracking-wider mt-0.5">{s.label}</div>
+                <div className="text-xs text-stone-300 uppercase tracking-wider mt-0.5">{s.label}</div>
               </div>
             ))}
           </div>
@@ -93,7 +88,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-4">Le Produit</span>
-              <h2 className="text-5xl italic text-stone-900 mb-6 leading-tight" style={serif}>
+              <h2 className="text-5xl italic text-stone-900 mb-6 leading-tight font-display">
                 Du goût. Pas de compromis.
               </h2>
               <p className="text-stone-600 text-lg font-light leading-relaxed mb-6">
@@ -156,7 +151,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-4">Notre Vision</span>
-            <h2 className="text-5xl italic text-stone-900 mb-4" style={serif}>Rendre le végétal irrésistible</h2>
+            <h2 className="text-5xl italic text-stone-900 mb-4 font-display">Rendre le végétal irrésistible</h2>
             <p className="text-stone-500 max-w-xl mx-auto text-lg font-light">
               Les chips végétales ont progressé de +47% entre 2019 et 2023.
               Aucun acteur majeur ne propose cette saveur en version végétale. C'est ce que Smash'd change.
@@ -263,7 +258,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-4">Ils ont goûté</span>
-            <h2 className="text-4xl italic text-white" style={serif}>Ce qu'ils en pensent.</h2>
+            <h2 className="text-4xl italic text-white font-display">Ce qu'ils en pensent.</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
@@ -300,7 +295,7 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-4">Pour tout le monde</span>
-          <h2 className="text-5xl italic text-stone-900 mb-6" style={serif}>Une chip pour tous — et surtout pour eux.</h2>
+          <h2 className="text-5xl italic text-stone-900 mb-6 font-display">Une chip pour tous — et surtout pour eux.</h2>
           <p className="text-stone-500 text-lg font-light max-w-xl mx-auto mb-4 leading-relaxed">
             Pensée pour les <strong className="text-stone-700">flexitariens et les intolérants au lactose</strong> — la seule chip crème sure & oignon sans produits laitiers.
           </p>
@@ -309,10 +304,7 @@ export default function Home() {
           </p>
           <Link
             to="/checkout"
-            className="inline-flex items-center gap-2 text-sm font-semibold px-8 py-4 rounded-full text-white transition-all"
-            style={{ backgroundColor: '#d44008' }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
+            className="inline-flex items-center gap-2 text-sm font-semibold px-8 py-4 rounded-full text-white bg-brand-500 hover:bg-brand-400 transition-colors"
           >
             Commander maintenant
           </Link>

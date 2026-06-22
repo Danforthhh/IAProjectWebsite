@@ -1,14 +1,12 @@
 import { Link } from 'react-router-dom'
 
-const serif = { fontFamily: "'DM Serif Display', Georgia, serif" }
-
 export default function Footer() {
   return (
     <footer className="bg-stone-950 border-t border-white/5 py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
           <div>
-            <div className="text-2xl font-black italic text-white mb-1" style={serif}>Smash'd</div>
+            <div className="text-2xl font-black italic text-white mb-1 font-display">Smash'd</div>
             <p className="text-sm text-stone-500">Chips de lentilles 100% végétales.</p>
           </div>
 
