@@ -20,10 +20,7 @@ const DEMO_PAYMENT = { card: '4716 8834 2291 0573', expiry: '08/28', cvv: '391',
 function TruckScene() {
   return (
     <div className="relative h-28 mx-auto overflow-visible" style={{ width: 320 }}>
-      {/* Ground */}
       <div className="absolute bottom-0 left-[-60px] right-[-60px] h-px bg-white/10" />
-
-      {/* Chip bag */}
       <div
         className="absolute bottom-8"
         style={{ left: '50%', animation: 'bagLoad 3.4s ease-in-out forwards' }}
@@ -40,8 +37,6 @@ function TruckScene() {
           </div>
         </div>
       </div>
-
-      {/* Truck */}
       <div
         className="absolute bottom-0 select-none text-6xl leading-none"
         style={{ left: '50%', marginLeft: -32, animation: 'truckRide 3.4s ease-in-out forwards' }}
@@ -64,6 +59,26 @@ export default function Checkout() {
   const [trackStep, setTrackStep] = useState(0)
   const [showDetails, setShowDetails] = useState(false)
   const [demoRunning, setDemoRunning] = useState(false)
+  const [demoField, setDemoField] = useState<string | null>(null)
+
+  // Style helpers for demo click animation
+  const demoRing = (id: string): React.CSSProperties =>
+    demoField === id
+      ? {
+          boxShadow: '0 0 0 3px rgba(212,64,8,0.4)',
+          borderColor: '#ea580c',
+          transform: 'scale(1.01)',
+          transition: 'all 0.15s ease',
+          outline: 'none',
+        }
+      : { transition: 'all 0.15s ease' }
+
+  const demoBtnRing = (id: string): React.CSSProperties => ({
+    backgroundColor: demoField === id ? '#eb5215' : '#d44008',
+    boxShadow: demoField === id ? '0 0 0 6px rgba(212,64,8,0.28)' : 'none',
+    transform: demoField === id ? 'scale(1.03)' : 'scale(1)',
+    transition: 'all 0.2s ease',
+  })
 
   useEffect(() => {
     if (step === 'confirmation') {
@@ -81,18 +96,26 @@ export default function Checkout() {
     const pause = (ms: number) => new Promise<void>(r => setTimeout(r, ms))
 
     const typeShipping = async (key: keyof typeof DEMO_SHIPPING, value: string) => {
+      setDemoField(key)
+      await pause(280)
       for (let i = 1; i <= value.length; i++) {
         setShipping(s => ({ ...s, [key]: value.slice(0, i) }))
         await pause(32)
       }
-      await pause(180)
+      await pause(200)
+      setDemoField(null)
+      await pause(80)
     }
     const typePayment = async (key: keyof typeof DEMO_PAYMENT, value: string) => {
+      setDemoField(key)
+      await pause(280)
       for (let i = 1; i <= value.length; i++) {
         setPayment(p => ({ ...p, [key]: value.slice(0, i) }))
         await pause(32)
       }
-      await pause(180)
+      await pause(200)
+      setDemoField(null)
+      await pause(80)
     }
 
     await typeShipping('firstName', DEMO_SHIPPING.firstName)
@@ -102,15 +125,22 @@ export default function Checkout() {
     await typeShipping('city', DEMO_SHIPPING.city)
     await typeShipping('zip', DEMO_SHIPPING.zip)
 
-    await pause(500)
+    setDemoField('btn-shipping')
+    await pause(700)
+    setDemoField(null)
+    await pause(100)
     setStep('payment')
+    await pause(400)
 
     await typePayment('name', DEMO_PAYMENT.name)
     await typePayment('card', DEMO_PAYMENT.card)
     await typePayment('expiry', DEMO_PAYMENT.expiry)
     await typePayment('cvv', DEMO_PAYMENT.cvv)
 
-    await pause(500)
+    setDemoField('btn-payment')
+    await pause(700)
+    setDemoField(null)
+    await pause(100)
     setStep('confirmation')
     setDemoRunning(false)
   }
@@ -128,17 +158,15 @@ export default function Checkout() {
   if (step === 'confirmation') {
     const trackLabels = ['Confirmée', 'En préparation', 'Expédiée']
     return (
-      <div className="min-h-screen bg-[#0F0D0A] flex items-center justify-center px-6 pt-20 pb-12 relative overflow-hidden">
+      <div className="min-h-screen bg-[#0F0D0A] flex items-start justify-center px-6 pt-28 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(234,88,12,0.12),transparent)]" />
 
         <div className="relative z-10 max-w-lg w-full text-center">
-          {/* Truck animation — always visible */}
           <div className="mb-6">
             <p className="text-xs uppercase tracking-[0.25em] text-brand-500 mb-6">Commande en route</p>
             <TruckScene />
           </div>
 
-          {/* Details — appear after truck drives away */}
           <div
             style={{
               opacity: showDetails ? 1 : 0,
@@ -146,7 +174,6 @@ export default function Checkout() {
               transition: 'opacity 0.6s ease, transform 0.6s ease',
             }}
           >
-            {/* Checkmark */}
             <div
               className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-4xl font-bold text-white"
               style={{
@@ -166,13 +193,11 @@ export default function Checkout() {
               Un email a été envoyé à <span className="text-stone-300">{shipping.email}</span>
             </p>
 
-            {/* Order number */}
             <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-8">
               <span className="text-xs text-stone-500 uppercase tracking-wider">Commande</span>
               <span className="text-sm font-mono font-bold text-brand-400">#SM-00042</span>
             </div>
 
-            {/* Live tracking */}
             <div className="bg-white/4 border border-white/8 rounded-2xl p-6 mb-8">
               <p className="text-xs uppercase tracking-widest text-stone-500 mb-5">Suivi en temps réel</p>
               <div className="flex items-start justify-between relative">
@@ -199,11 +224,6 @@ export default function Checkout() {
                   </div>
                 ))}
               </div>
-              {trackStep >= 3 && (
-                <p className="text-xs text-brand-400 text-center mt-4 animate-fadeInUp">
-                  Livraison estimée sous 3 à 5 jours ouvrés
-                </p>
-              )}
             </div>
 
             <Link
@@ -291,7 +311,8 @@ export default function Checkout() {
                         required type="text" placeholder={f.placeholder}
                         value={shipping[f.id as keyof typeof shipping]}
                         onChange={e => setShipping(s => ({ ...s, [f.id]: e.target.value }))}
-                        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white"
+                        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none bg-white"
+                        style={demoRing(f.id)}
                       />
                     </div>
                   ))}
@@ -302,7 +323,8 @@ export default function Checkout() {
                     required type="email" placeholder="jean@exemple.fr"
                     value={shipping.email}
                     onChange={e => setShipping(s => ({ ...s, email: e.target.value }))}
-                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white"
+                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none bg-white"
+                    style={demoRing('email')}
                   />
                 </div>
                 <div className="mb-4">
@@ -311,13 +333,14 @@ export default function Checkout() {
                     required type="text" placeholder="12 rue de la Paix"
                     value={shipping.address}
                     onChange={e => setShipping(s => ({ ...s, address: e.target.value }))}
-                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white"
+                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none bg-white"
+                    style={demoRing('address')}
                   />
                 </div>
                 <div className="grid sm:grid-cols-3 gap-4 mb-6">
                   {[
-                    { id: 'city', label: 'Ville', placeholder: 'Paris', span: 2 },
-                    { id: 'zip', label: 'Code postal', placeholder: '75001', span: 1 },
+                    { id: 'city', label: 'Ville', placeholder: 'Montréal', span: 2 },
+                    { id: 'zip', label: 'Code postal', placeholder: 'H2Z 1E5', span: 1 },
                   ].map(f => (
                     <div key={f.id} className={f.span === 2 ? 'sm:col-span-2' : ''}>
                       <label className="block text-sm font-medium text-stone-700 mb-1">{f.label}</label>
@@ -325,17 +348,18 @@ export default function Checkout() {
                         required type="text" placeholder={f.placeholder}
                         value={shipping[f.id as keyof typeof shipping]}
                         onChange={e => setShipping(s => ({ ...s, [f.id]: e.target.value }))}
-                        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white"
+                        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none bg-white"
+                        style={demoRing(f.id)}
                       />
                     </div>
                   ))}
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-full font-semibold text-white transition-colors"
-                  style={{ backgroundColor: '#d44008' }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
+                  className="w-full py-3.5 rounded-full font-semibold text-white"
+                  style={demoBtnRing('btn-shipping')}
+                  onMouseEnter={e => { if (demoField !== 'btn-shipping') e.currentTarget.style.backgroundColor = '#eb5215' }}
+                  onMouseLeave={e => { if (demoField !== 'btn-shipping') e.currentTarget.style.backgroundColor = '#d44008' }}
                 >
                   Continuer vers le paiement
                 </button>
@@ -351,7 +375,8 @@ export default function Checkout() {
                     required type="text" placeholder="Jean Dupont"
                     value={payment.name}
                     onChange={e => setPayment(p => ({ ...p, name: e.target.value }))}
-                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white"
+                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none bg-white"
+                    style={demoRing('name')}
                   />
                 </div>
                 <div className="mb-4">
@@ -360,7 +385,8 @@ export default function Checkout() {
                     required type="text" placeholder="4242 4242 4242 4242" maxLength={19}
                     value={payment.card}
                     onChange={e => setPayment(p => ({ ...p, card: e.target.value.replace(/\D/g, '').replace(/(\d{4})/g, '$1 ').trim() }))}
-                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white font-mono"
+                    className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none bg-white font-mono"
+                    style={demoRing('card')}
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4 mb-6">
@@ -375,7 +401,8 @@ export default function Checkout() {
                         maxLength={f.id === 'cvv' ? 3 : 5}
                         value={payment[f.id as keyof typeof payment]}
                         onChange={e => setPayment(p => ({ ...p, [f.id]: e.target.value }))}
-                        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white font-mono"
+                        className="w-full px-4 py-2.5 border border-stone-200 rounded-xl text-sm focus:outline-none bg-white font-mono"
+                        style={demoRing(f.id)}
                       />
                     </div>
                   ))}
@@ -386,10 +413,10 @@ export default function Checkout() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-full font-semibold text-white transition-colors"
-                  style={{ backgroundColor: '#d44008' }}
-                  onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#eb5215')}
-                  onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#d44008')}
+                  className="w-full py-3.5 rounded-full font-semibold text-white"
+                  style={demoBtnRing('btn-payment')}
+                  onMouseEnter={e => { if (demoField !== 'btn-payment') e.currentTarget.style.backgroundColor = '#eb5215' }}
+                  onMouseLeave={e => { if (demoField !== 'btn-payment') e.currentTarget.style.backgroundColor = '#d44008' }}
                 >
                   Confirmer la commande · ${price.toFixed(2)}
                 </button>
