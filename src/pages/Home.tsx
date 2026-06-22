@@ -63,16 +63,7 @@ export default function Home() {
 
             {/* Right — product visual */}
             <div className="flex justify-center lg:justify-end shrink-0">
-              <div className="relative">
-                <ProductVisual size="lg" />
-                {/* Score badge */}
-                <div
-                  className="absolute -top-3 -right-3 w-16 h-16 rounded-full bg-white text-stone-900 flex flex-col items-center justify-center shadow-lg"
-                >
-                  <span className="text-lg font-black leading-none" style={{ color: '#d44008' }}>4.7</span>
-                  <span className="text-[9px] text-stone-400 font-medium">/5</span>
-                </div>
-              </div>
+              <ProductVisual size="lg" />
             </div>
           </div>
 
