@@ -31,7 +31,9 @@ export default function Product() {
             {/* Details */}
             <div className="py-4">
               <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-500 block mb-3">Chips de lentilles</span>
-              <h1 className="text-5xl md:text-6xl italic text-stone-900 mb-2" style={serif}>Smash'd</h1>
+              <h1 className="text-5xl md:text-6xl italic text-stone-900 mb-2" style={serif}>
+                <span className="crack-text">Smash'd</span>
+              </h1>
               <p className="text-xl text-stone-500 font-light mb-6">Saveur Crème Sure & Oignon</p>
 
               <div className="flex items-baseline gap-2 mb-6">

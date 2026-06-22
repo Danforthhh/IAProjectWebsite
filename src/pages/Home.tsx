@@ -15,7 +15,8 @@ export default function Home() {
           src={`${import.meta.env.BASE_URL}hero-lentils.jpg`}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover opacity-[0.28]"
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.42]"
+          style={{ objectPosition: 'center 30%' }}
         />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_20%_50%,rgba(212,64,8,0.22),transparent)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_30%,rgba(212,64,8,0.08),transparent)]" />
@@ -255,7 +256,10 @@ export default function Home() {
       </section>
 
       {/* ── Témoignages ──────────────────────────────────────── */}
-      <section className="py-24 bg-stone-950 text-white">
+      <section
+        className="py-24 text-white"
+        style={{ background: 'radial-gradient(ellipse 110% 70% at 8% 25%, rgba(212,64,8,0.09) 0%, transparent 55%), radial-gradient(ellipse 55% 60% at 92% 85%, rgba(251,146,60,0.06) 0%, transparent 50%), #0a0807' }}
+      >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-400 block mb-4">Ils ont goûté</span>

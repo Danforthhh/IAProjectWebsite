@@ -109,6 +109,43 @@ body {
   to { transform: rotate(360deg); }
 }
 
+/* ── Crack typographic effect ── */
+.crack-text {
+  position: relative;
+  display: inline-block;
+}
+.crack-text::after {
+  content: '';
+  position: absolute;
+  top: -8%;
+  left: 46%;
+  width: 2px;
+  height: 116%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--color-brand-500) 20%,
+    var(--color-brand-400) 55%,
+    var(--color-brand-500) 85%,
+    transparent 100%
+  );
+  transform: rotate(10deg);
+  transform-origin: top center;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -117,6 +154,6 @@ body {
   background: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4a843;
+  background: var(--color-brand-500);
   border-radius: 3px;
 }
